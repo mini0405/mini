@@ -16,7 +16,7 @@ const Contact = ({ onNavigate }) => {
       description: 'Complete professional CV with education, experience, and skills',
       icon: '📄',
       type: 'PDF',
-      size: '2.1 MB',
+      size: '175.3 KB',
       downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/Minentle_Stuurman_SiteCV.pdf'
     },
     {
@@ -24,7 +24,7 @@ const Contact = ({ onNavigate }) => {
       description: 'Solutions Architect Associate and Cloud Quest certificates',
       icon: '☁️',
       type: 'PDF',
-      size: '3.2 MB',
+      size: '33.7 KB',
       downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/AWS+Certified+Solutions+Architect+-+Associate+certificate.pdf'
     },
     {
@@ -32,16 +32,16 @@ const Contact = ({ onNavigate }) => {
       description: 'Official academic records from Cape Peninsula University of Technology',
       icon: '🎓',
       type: 'PDF',
-      size: '1.8 MB',
-      downloadUrl: '#' // Add when available
+      size: 'Not Available',
+      downloadUrl: null
     },
     {
       title: 'Portfolio Summary',
       description: 'One-page overview of key projects and achievements',
       icon: '📊',
       type: 'PDF',
-      size: '1.5 MB',
-      downloadUrl: '#' // Add when available
+      size: 'Not Available',
+      downloadUrl: null
     }
   ];
 
@@ -82,14 +82,13 @@ const Contact = ({ onNavigate }) => {
                 
                 <CyberButton 
                   onClick={() => {
-                    if (doc.downloadUrl && doc.downloadUrl !== '#') {
+                    if (doc.downloadUrl) {
                       window.open(doc.downloadUrl, '_blank');
-                    } else {
-                      alert('Document will be available soon!');
                     }
                   }}
+                  disabled={!doc.downloadUrl}
                 >
-                  Download ⬇️
+                  {doc.downloadUrl ? 'Download ⬇️' : 'Not Available'}
                 </CyberButton>
               </motion.div>
             ))}
