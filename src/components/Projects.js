@@ -12,7 +12,7 @@ const Projects = ({ onNavigate }) => {
   const projectCategories = [
     {
       category: 'Academic Projects',
-      icon: '🎓',
+      icon: 'school',
       projects: [
         {
           title: 'Dynamic Load Balancing Algorithm',
@@ -42,7 +42,7 @@ const Projects = ({ onNavigate }) => {
     },
     {
       category: 'Professional Experience',
-      icon: '💼',
+      icon: 'work',
       projects: [
         {
           title: 'AWS Cloud Support Associate',
@@ -60,7 +60,7 @@ const Projects = ({ onNavigate }) => {
     },
     {
       category: 'Personal Projects',
-      icon: '💻',
+      icon: 'code',
       projects: [
         {
           title: 'Pet Care Management App',
@@ -105,7 +105,7 @@ const Projects = ({ onNavigate }) => {
                 transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
               >
                 <div className="category-header">
-                  <span className="category-icon">{category.icon}</span>
+                  <span className="category-icon material-icons">{category.icon}</span>
                   <h3 className="category-title">{category.category}</h3>
                 </div>
                 

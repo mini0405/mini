@@ -24,23 +24,23 @@ const Footer = ({ onNavigate }) => {
             <h4>Navigation</h4>
             <div className="nav-links">
               <button onClick={() => onNavigate && onNavigate('home')} className="footer-nav-link">
-                <span className="nav-icon">🏠</span>
+                <span className="nav-icon material-icons">home</span>
                 <span>Home</span>
               </button>
               <button onClick={() => onNavigate && onNavigate('about')} className="footer-nav-link">
-                <span className="nav-icon">👨💻</span>
+                <span className="nav-icon material-icons">person</span>
                 <span>About</span>
               </button>
               <button onClick={() => onNavigate && onNavigate('skills')} className="footer-nav-link">
-                <span className="nav-icon">⚡</span>
+                <span className="nav-icon material-icons">bolt</span>
                 <span>Skills</span>
               </button>
               <button onClick={() => onNavigate && onNavigate('projects')} className="footer-nav-link">
-                <span className="nav-icon">🚀</span>
+                <span className="nav-icon material-icons">rocket_launch</span>
                 <span>Projects</span>
               </button>
               <button onClick={() => onNavigate && onNavigate('contact')} className="footer-nav-link">
-                <span className="nav-icon">📄</span>
+                <span className="nav-icon material-icons">description</span>
                 <span>Documents</span>
               </button>
             </div>
@@ -50,27 +50,27 @@ const Footer = ({ onNavigate }) => {
             <h4>Connect With Me</h4>
             <div className="contact-links">
               <a href="mailto:mentorstuurman05@outlook.com" className="contact-link">
-                <span className="contact-icon">📧</span>
+                <span className="contact-icon material-icons">email</span>
                 <span>mentorstuurman05@outlook.com</span>
               </a>
               <a href="https://linkedin.com/in/mini-stuurman" className="contact-link" target="_blank" rel="noopener noreferrer">
-                <span className="contact-icon">💼</span>
+                <span className="contact-icon material-icons">work</span>
                 <span>LinkedIn Profile</span>
               </a>
               <a href="https://github.com/mini0405" className="contact-link" target="_blank" rel="noopener noreferrer">
-                <span className="contact-icon">💻</span>
+                <span className="contact-icon material-icons">code</span>
                 <span>GitHub Portfolio</span>
               </a>
               <a href="https://minentle.co.za" className="contact-link">
-                <span className="contact-icon">🌐</span>
+                <span className="contact-icon material-icons">language</span>
                 <span>Portfolio Website</span>
               </a>
               <div className="contact-link">
-                <span className="contact-icon">📍</span>
+                <span className="contact-icon material-icons">location_on</span>
                 <span>Johannesburg / Cape Town, South Africa</span>
               </div>
               <a href="https://www.credly.com/users/minentle-stuurman/badges#credly" className="contact-link">
-                <span className="contact-icon">☁️</span>
+                <span className="contact-icon material-icons">cloud</span>
                 <span>AWS Certified Solutions Architect</span>
               </a>
             </div>

@@ -14,7 +14,7 @@ const Contact = ({ onNavigate }) => {
     {
       title: 'Curriculum Vitae',
       description: 'Complete professional CV with education, experience, and skills',
-      icon: '📄',
+      icon: 'description',
       type: 'PDF',
       size: '175.3 KB',
       downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/Minentle_Stuurman_SiteCV.pdf'
@@ -22,7 +22,7 @@ const Contact = ({ onNavigate }) => {
     {
       title: 'AWS Certifications',
       description: 'Solutions Architect Associate and Cloud Quest certificates',
-      icon: '☁️',
+      icon: 'cloud',
       type: 'PDF',
       size: '33.7 KB',
       downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/AWS+Certified+Solutions+Architect+-+Associate+certificate.pdf'
@@ -30,7 +30,7 @@ const Contact = ({ onNavigate }) => {
     {
       title: 'Academic Transcript',
       description: 'Official academic records from Cape Peninsula University of Technology',
-      icon: '🎓',
+      icon: 'school',
       type: 'PDF',
       size: 'Not Available',
       downloadUrl: null
@@ -38,7 +38,7 @@ const Contact = ({ onNavigate }) => {
     {
       title: 'Portfolio Summary',
       description: 'One-page overview of key projects and achievements',
-      icon: '📊',
+      icon: 'analytics',
       type: 'PDF',
       size: 'Not Available',
       downloadUrl: null
@@ -67,7 +67,7 @@ const Contact = ({ onNavigate }) => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="document-icon">
-                  <span>{doc.icon}</span>
+                  <span className="material-icons">{doc.icon}</span>
                 </div>
                 
                 <div className="document-content">

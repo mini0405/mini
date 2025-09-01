@@ -12,7 +12,7 @@ const Skills = ({ onNavigate }) => {
   const skillCategories = [
     {
       title: 'Cloud Computing & Infrastructure',
-      icon: '☁️',
+      icon: 'cloud',
       color: '#667eea',
       skills: [
         'AWS EC2, S3, RDS, Lambda',
@@ -24,7 +24,7 @@ const Skills = ({ onNavigate }) => {
     },
     {
       title: 'Programming & Development',
-      icon: '💻',
+      icon: 'code',
       color: '#764ba2',
       skills: [
         'Java (OOP)',
@@ -37,7 +37,7 @@ const Skills = ({ onNavigate }) => {
     },
     {
       title: 'Cybersecurity & Networks',
-      icon: '🔒',
+      icon: 'security',
       color: '#f093fb',
       skills: [
         'AWS security best practices',
@@ -50,7 +50,7 @@ const Skills = ({ onNavigate }) => {
     },
     {
       title: 'Database & Data Management',
-      icon: '🗄️',
+      icon: 'storage',
       color: '#4facfe',
       skills: [
         'MySQL design & optimization',
@@ -62,7 +62,7 @@ const Skills = ({ onNavigate }) => {
     },
     {
       title: 'Leadership & Communication',
-      icon: '👥',
+      icon: 'groups',
       color: '#43e97b',
       skills: [
         'Team management (350+ students)',
@@ -74,7 +74,7 @@ const Skills = ({ onNavigate }) => {
     },
     {
       title: 'Certifications & Tools',
-      icon: '🏆',
+      icon: 'workspace_premium',
       color: '#fa709a',
       skills: [
         'AWS Solutions Architect Associate',
@@ -109,7 +109,7 @@ const Skills = ({ onNavigate }) => {
                 style={{ '--card-color': category.color }}
               >
                 <div className="skill-header">
-                  <span className="skill-icon">{category.icon}</span>
+                  <span className="skill-icon material-icons">{category.icon}</span>
                   <h3 className="skill-title">{category.title}</h3>
                 </div>
                 
