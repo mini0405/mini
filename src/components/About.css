@@ -1,0 +1,273 @@
+.about {
+  background: linear-gradient(135deg, #111215 0%, #1a1a2e 50%, #0a0a0f 100%);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #ffffff;
+}
+
+.about-text p {
+  margin-bottom: 1.5rem;
+  color: #b0b0b0;
+}
+
+.about-text h3 {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.about-text strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.about-text blockquote {
+  font-style: italic;
+  text-align: center;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
+  border-radius: 12px;
+  border: 2px solid transparent;
+  color: #888;
+  backdrop-filter: blur(20px);
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.about-text blockquote::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #f50, #05f, #f50);
+  background-size: 300% 300%;
+  animation: gradientSpin 2s ease infinite;
+  z-index: -1;
+  border-radius: inherit;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.about-text blockquote::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
+  z-index: -1;
+  border-radius: inherit;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
+  border-radius: 16px;
+  border: 2px solid transparent;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+
+.stat-item::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #f50, #05f, #f50, #05f);
+  background-size: 400% 400%;
+  animation: gradientSpin 3s ease infinite;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+
+.stat-item::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
+  z-index: -1;
+  border-radius: inherit;
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+
+.stat-item:hover::before {
+  opacity: 1;
+}
+
+.stat-item:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px rgba(255, 80, 0, 0.3), 0 0 30px rgba(0, 95, 255, 0.2);
+  filter: drop-shadow(0 0 20px rgba(255, 80, 0, 0.4));
+}
+
+.academic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.academic-year-card {
+  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.academic-year-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #f50, #05f, #f50, #05f);
+  background-size: 400% 400%;
+  animation: gradientSpin 3s ease infinite;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.academic-year-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
+  z-index: -1;
+  border-radius: inherit;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.academic-year-card:hover::before {
+  opacity: 1;
+}
+
+.academic-year-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(255, 80, 0, 0.3), 0 0 25px rgba(0, 95, 255, 0.2);
+  filter: drop-shadow(0 0 15px rgba(255, 80, 0, 0.3));
+}
+
+.year-title {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+  text-shadow: 0 0 10px currentColor;
+}
+
+.year-1 { color: #05f; }
+.year-2 { color: #f50; }
+.year-3 { color: #f0f; }
+
+.module-list {
+  font-size: 0.85rem;
+  color: #b0b0b0;
+  line-height: 1.4;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.module-list li {
+  margin-bottom: 0.3rem;
+  transition: color 0.3s ease;
+}
+
+.academic-year-card:hover .module-list li {
+  color: #ffffff;
+}
+
+@keyframes gradientSpin {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.stat-item h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #f50;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(255, 80, 0, 0.5);
+}
+
+.stat-item p {
+  color: #888;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .about-stats {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .stat-item {
+    padding: 1.5rem 1rem;
+  }
+  
+  .stat-item h3 {
+    font-size: 2rem;
+  }
+}

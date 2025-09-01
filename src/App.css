@@ -1,0 +1,182 @@
+.App {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a0f 0%, #111215 50%, #1a1a2e 100%);
+  color: #ffffff;
+}
+
+.main-content {
+  min-height: 100vh;
+  padding-top: 160px;
+}
+
+.section {
+  min-height: calc(100vh - 160px);
+  padding: 20px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 4rem;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #f50, #05f, #fc9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: glow-text 3s ease-in-out infinite alternate;
+}
+
+@keyframes glow-text {
+  0% { filter: drop-shadow(0 0 10px #f50); }
+  50% { filter: drop-shadow(0 0 20px #05f); }
+  100% { filter: drop-shadow(0 0 10px #fc9); }
+}
+
+.card {
+  background: rgba(17, 18, 21, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 80, 0, 0.1), transparent, rgba(0, 95, 255, 0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(255, 80, 0, 0.2);
+  border-color: rgba(255, 80, 0, 0.5);
+}
+
+/* Cyberpunk Button Styles */
+.cyber-btn {
+  position: relative;
+  margin: 0.5em;
+  display: inline-block;
+}
+
+.cyber-btn-border {
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 14px;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+}
+
+.cyber-btn-content {
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 12px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  padding: 12px 24px;
+  background: #111215;
+  display: flex;
+  color: #fff;
+  overflow: hidden;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cyber-btn-real {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  outline: none;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.cyber-spin {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.5;
+  overflow: hidden;
+  transition: 0.3s;
+  border-radius: 14px;
+}
+
+.cyber-btn-real:active ~ .cyber-spin {
+  opacity: 1;
+}
+
+.cyber-spin-blur {
+  filter: blur(2em) url(#unopaq);
+}
+
+.cyber-spin-intense {
+  inset: -2px;
+  filter: blur(4px) url(#unopaq2);
+}
+
+.cyber-spin::before {
+  content: "";
+  position: absolute;
+  inset: -150%;
+  animation: cyber-spin 8s cubic-bezier(0.56, 0.15, 0.28, 0.86) infinite;
+  animation-play-state: paused;
+}
+
+.cyber-btn:hover .cyber-spin::before {
+  animation-play-state: running;
+}
+
+.cyber-spin-blur::before {
+  background: linear-gradient(90deg, #f50 30%, transparent 50%, #05f 70%);
+}
+
+.cyber-spin-intense::before {
+  background: linear-gradient(90deg, #f95 20%, transparent 45%, transparent 55%, #59f 80%);
+}
+
+@keyframes cyber-spin {
+  0% { rotate: 10deg; }
+  50% { rotate: 190deg; }
+  100% { rotate: 370deg; }
+}
+
+/* SVG Filters for buttons */
+svg.button-filters {
+  position: absolute;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
