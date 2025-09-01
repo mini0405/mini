@@ -3,14 +3,16 @@ frontend:
   phases:
     preBuild:
       commands:
+        - cd minentle-portfolio
         - npm ci
     build:
       commands:
+        - cd minentle-portfolio
         - npm run build
   artifacts:
-    baseDirectory: build
+    baseDirectory: minentle-portfolio/build
     files:
       - '**/*'
   cache:
     paths:
-      - node_modules/**/*
+      - minentle-portfolio/node_modules/**/*
