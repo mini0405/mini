@@ -17,15 +17,7 @@ const Contact = ({ onNavigate }) => {
       icon: '📄',
       type: 'PDF',
       size: '2.1 MB',
-      downloadUrl: '#' // Will be replaced with S3 URL later
-    },
-    {
-      title: 'Academic Transcript',
-      description: 'Official academic records from Cape Peninsula University of Technology',
-      icon: '🎓',
-      type: 'PDF',
-      size: '1.8 MB',
-      downloadUrl: '#' // Will be replaced with S3 URL later
+      downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/Minentle_Stuurman_SiteCV.pdf'
     },
     {
       title: 'AWS Certifications',
@@ -33,7 +25,15 @@ const Contact = ({ onNavigate }) => {
       icon: '☁️',
       type: 'PDF',
       size: '3.2 MB',
-      downloadUrl: '#' // Will be replaced with S3 URL later
+      downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/AWS+Certified+Solutions+Architect+-+Associate+certificate.pdf'
+    },
+    {
+      title: 'Academic Transcript',
+      description: 'Official academic records from Cape Peninsula University of Technology',
+      icon: '🎓',
+      type: 'PDF',
+      size: '1.8 MB',
+      downloadUrl: '#' // Add when available
     },
     {
       title: 'Portfolio Summary',
@@ -41,7 +41,7 @@ const Contact = ({ onNavigate }) => {
       icon: '📊',
       type: 'PDF',
       size: '1.5 MB',
-      downloadUrl: '#' // Will be replaced with S3 URL later
+      downloadUrl: '#' // Add when available
     }
   ];
 
@@ -82,8 +82,11 @@ const Contact = ({ onNavigate }) => {
                 
                 <CyberButton 
                   onClick={() => {
-                    // TODO: Implement S3 download
-                    alert('Download functionality will be implemented with S3');
+                    if (doc.downloadUrl && doc.downloadUrl !== '#') {
+                      window.open(doc.downloadUrl, '_blank');
+                    } else {
+                      alert('Document will be available soon!');
+                    }
                   }}
                 >
                   Download ⬇️
