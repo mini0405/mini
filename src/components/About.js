@@ -45,7 +45,7 @@ const About = ({ onNavigate }) => {
                 During my time at AWS, I had the privilege of working with an amazing team that taught me what true collaboration looks like. From supporting EC2 instances to helping customers navigate S3 configurations, every day brought new challenges and learning opportunities. I'm proud to be <strong>AWS Certified Solutions Architect Associate</strong>, with additional certifications in Cloud Quest tracks.
               </p>
               <p>
-                But my experience goes beyond just technical skills. As a <strong>Residence Student Assistant managing 350+ students</strong>, I learned the art of communication, conflict resolution, and leadership. These experiences taught me that the best technical solutions are meaningless without the human element – understanding people's needs and communicating complex ideas clearly.
+                But my experience goes beyond just technical skills. As a <strong>Residence Student Assistant managing 350+ Residents </strong>, I learned the art of communication, conflict resolution, and leadership. These experiences taught me that the best technical solutions are meaningless without the human element – understanding people's needs and communicating complex ideas clearly.
               </p>
               
               <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>Beyond the Code</h3>
