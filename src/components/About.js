@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import TypewriterGreeting from './TypewriterGreeting';
 import './About.css';
 
 const About = ({ onNavigate }) => {
@@ -29,7 +30,7 @@ const About = ({ onNavigate }) => {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <p>
-                Molo, I'm <strong>Minentle Stuurman</strong>
+                <TypewriterGreeting />, I'm <strong>Minentle Stuurman</strong>
               </p>
               <p>
                 I'm a final year Computer Engineering student at Cape Peninsula University of Technology with a passion for cloud computing and cybersecurity. Recently, I wrapped up an incredible 6-month journey as a <strong>Cloud Support Engineering Intern at Amazon Web Services</strong>, where I got to work with cutting-edge cloud technologies and support enterprise customers.
