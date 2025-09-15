@@ -46,7 +46,7 @@ function AppContent() {
     <div className="App">
       <AnimatedGreeting />
       <Navigation currentSection={currentSection} onNavigate={handleNavigation} />
-      <main className="main-content">
+      <main className="main-content" key={currentSection}>
         {renderSection()}
       </main>
       <Footer onNavigate={handleNavigation} />
