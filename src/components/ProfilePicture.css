@@ -23,7 +23,7 @@
   left: -3px;
   right: -3px;
   bottom: -3px;
-  background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F, #8B4513);
+  background: linear-gradient(45deg, #866762, #866762, #866762, #866762);
   background-size: 400% 400%;
   animation: brownTubeLight 3s ease infinite;
   border-radius: 50%;
@@ -53,10 +53,10 @@
 .profile-sphere:hover {
   transform: scale(1.05);
   box-shadow: 
-    0 0 30px rgba(139, 69, 19, 0.6),
-    0 0 60px rgba(210, 105, 30, 0.4),
-    0 0 90px rgba(205, 133, 63, 0.2);
-  filter: drop-shadow(0 0 20px rgba(139, 69, 19, 0.5));
+    0 0 30px rgba(134, 103, 98, 0.6),
+    0 0 60px rgba(134, 103, 98, 0.4),
+    0 0 90px rgba(134, 103, 98, 0.2);
+  filter: drop-shadow(0 0 20px rgba(134, 103, 98, 0.5));
 }
 
 .profile-sphere:hover::before {
@@ -73,9 +73,9 @@
   background: radial-gradient(
     circle at center,
     transparent 70%,
-    rgba(139, 69, 19, 0.3) 75%,
-    rgba(210, 105, 30, 0.5) 80%,
-    rgba(205, 133, 63, 0.3) 85%,
+    rgba(134, 103, 98, 0.3) 75%,
+    rgba(134, 103, 98, 0.5) 80%,
+    rgba(134, 103, 98, 0.3) 85%,
     transparent 90%
   );
   animation: brownGlow 2s ease-in-out infinite alternate;
