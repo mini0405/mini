@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import TypewriterGreeting from './TypewriterGreeting';
+import ProfilePicture from './ProfilePicture';
 import './About.css';
 
 const About = ({ onNavigate }) => {
@@ -120,6 +121,7 @@ const About = ({ onNavigate }) => {
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
+              <ProfilePicture />
               <div className="stat-item card">
                 <h3>7</h3>
                 <p>Months at AWS</p>
