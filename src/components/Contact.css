@@ -147,6 +147,18 @@
   margin-bottom: 1rem;
 }
 
+.certificate-embeds {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.credly-embed {
+  flex-shrink: 0;
+}
+
 .document-meta {
   display: flex;
   gap: 1rem;

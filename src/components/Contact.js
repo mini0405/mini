@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CyberButton from './CyberButton';
@@ -9,6 +9,22 @@ const Contact = ({ onNavigate }) => {
     triggerOnce: true,
     threshold: 0.1
   });
+
+  useEffect(() => {
+    // Load Credly script
+    const script = document.createElement('script');
+    script.src = '//cdn.credly.com/assets/utilities/embed.js';
+    script.async = true;
+    document.head.appendChild(script);
+    
+    return () => {
+      // Cleanup
+      const existingScript = document.querySelector('script[src="//cdn.credly.com/assets/utilities/embed.js"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+    };
+  }, []);
 
   const documents = [
     {
@@ -25,7 +41,12 @@ const Contact = ({ onNavigate }) => {
       icon: 'cloud',
       type: 'PDF',
       size: '33.7 KB',
-      downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/AWS+Certified+Solutions+Architect+-+Associate+certificate.pdf'
+      downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/AWS+Certified+Solutions+Architect+-+Associate+certificate.pdf',
+      credlyBadges: [
+        { id: '428102de-c3ec-4350-afc2-ea2f618053c3', title: 'AWS Solutions Architect Associate' },
+        { id: '0cd8e7de-9354-4c70-b168-dab3fa10586b', title: 'AWS Cloud Quest Solutions Architect' },
+        { id: '3596d14b-3ced-4a74-a4f5-5cadc809e05e', title: 'AWS Cloud Quest Cloud Practitioner' }
+      ]
     },
     {
       title: 'Academic Transcript',
@@ -73,6 +94,21 @@ const Contact = ({ onNavigate }) => {
                 <div className="document-content">
                   <h3 className="document-title">{doc.title}</h3>
                   <p className="document-description">{doc.description}</p>
+                  
+                  {doc.credlyBadges && (
+                    <div className="certificate-embeds">
+                      {doc.credlyBadges.map((badge, idx) => (
+                        <div 
+                          key={idx}
+                          className="credly-embed"
+                          data-iframe-width="150"
+                          data-iframe-height="270"
+                          data-share-badge-id={badge.id}
+                          data-share-badge-host="https://www.credly.com"
+                        ></div>
+                      ))}
+                    </div>
+                  )}
                   
                   <div className="document-meta">
                     <span className="document-type">{doc.type}</span>
