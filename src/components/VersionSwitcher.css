@@ -1,0 +1,53 @@
+.version-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.version-toggle {
+  display: flex;
+  background: rgba(17, 18, 21, 0.9);
+  border-radius: 25px;
+  padding: 4px;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 80, 0, 0.3);
+}
+
+.version-btn {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: #888;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.version-btn.active {
+  background: linear-gradient(135deg, #f50, #05f);
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 80, 0, 0.4);
+}
+
+.version-label {
+  font-size: 0.7rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .version-switcher {
+    top: 10px;
+    right: 10px;
+  }
+  
+  .version-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}

@@ -3,13 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.542.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-intersection-observer": "^9.5.2",
     "react-router-dom": "^7.9.1",
-    "react-scripts": "5.0.1"
+    "react-scripts": "5.0.1",
+    "three": "^0.180.0"
   },
   "scripts": {
     "start": "react-scripts start",
