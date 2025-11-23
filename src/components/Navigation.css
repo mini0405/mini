@@ -4,12 +4,12 @@
   right: 20px;
   transform: translateY(-50%);
   z-index: 1002;
-  background: transparent;
-  backdrop-filter: none;
+  background: rgba(17, 18, 21, 0.6);
+  backdrop-filter: blur(20px);
   border-radius: 20px;
-  padding: 8px;
-  border: none;
-  box-shadow: none;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
 }
@@ -109,17 +109,21 @@
 
 @media (max-width: 768px) {
   .navigation {
-    bottom: 20px;
+    bottom: 0;
     top: auto;
-    right: 50%;
-    transform: translateX(50%);
-    width: calc(100% - 40px);
-    max-width: 400px;
+    left: 0;
+    right: 0;
+    transform: none;
+    width: 100%;
+    max-width: none;
     flex-direction: row;
-    background: transparent;
-    backdrop-filter: none;
+    background: rgba(17, 18, 21, 0.6);
+    backdrop-filter: blur(20px);
     border: none;
-    box-shadow: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+    border-radius: 0;
+    padding: 12px 20px;
   }
   
   .nav-container {

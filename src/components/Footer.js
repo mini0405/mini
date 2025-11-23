@@ -15,36 +15,12 @@ const Footer = ({ onNavigate }) => {
           <div className="footer-bio">
             <h3>Minentle Stuurman</h3>
             <p>
-              Final year Computer Engineering student passionate about cloud computing and cybersecurity. 
+              Computer Engineer passionate about DevOps, Cyber Security & Software Development. 
               AWS Certified Solutions Architect with hands-on experience in cloud infrastructure and customer support.
             </p>
           </div>
           
-          <div className="footer-navigation">
-            <h4>Navigation</h4>
-            <div className="nav-links">
-              <button onClick={() => onNavigate && onNavigate('home')} className="footer-nav-link">
-                <span className="nav-icon material-icons">home</span>
-                <span>Home</span>
-              </button>
-              <button onClick={() => onNavigate && onNavigate('about')} className="footer-nav-link">
-                <span className="nav-icon material-icons">person</span>
-                <span>About</span>
-              </button>
-              <button onClick={() => onNavigate && onNavigate('skills')} className="footer-nav-link">
-                <span className="nav-icon material-icons">bolt</span>
-                <span>Skills</span>
-              </button>
-              <button onClick={() => onNavigate && onNavigate('projects')} className="footer-nav-link">
-                <span className="nav-icon material-icons">rocket_launch</span>
-                <span>Projects</span>
-              </button>
-              <button onClick={() => onNavigate && onNavigate('contact')} className="footer-nav-link">
-                <span className="nav-icon material-icons">description</span>
-                <span>Documents</span>
-              </button>
-            </div>
-          </div>
+
           
           <div className="footer-contact">
             <h4>Connect With Me</h4>

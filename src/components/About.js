@@ -34,7 +34,7 @@ const About = ({ onNavigate }) => {
                 <TypewriterGreeting />, I'm <strong>Minentle Stuurman</strong>
               </p>
               <p>
-                I'm a final year Computer Engineering student at Cape Peninsula University of Technology with a passion for cloud computing and cybersecurity. Recently, I wrapped up an incredible 6-month journey as a <strong>Cloud Support Engineering Intern at Amazon Web Services</strong>, where I got to work with cutting-edge cloud technologies and support enterprise customers.
+                I'm a Computer Engineering gradute at Cape Peninsula University of Technology with a passion for cloud computing and cybersecurity. Recently, I wrapped up an incredible 7-month journey as a <strong>Cloud Support Associate Intern at Amazon Web Services</strong>, where I got to work with cutting-edge cloud technologies and support enterprise customers.
               </p>
               
               <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>What I Do</h3>
@@ -55,12 +55,12 @@ const About = ({ onNavigate }) => {
                 When I'm not diving deep into cloud architectures or debugging systems, you'll find me exploring the intersection of technology and community impact. Growing up in South Africa and speaking multiple local languages fluently has given me a unique perspective on how technology can bridge cultural and communication gaps.
               </p>
               <p>
-                I believe in the power of continuous learning – whether it's mastering a new AWS service, understanding emerging cybersecurity threats, or simply staying curious about how things work. This mindset has served me well, from balancing demanding internship responsibilities with final year studies to constantly seeking ways to improve and grow.
+                I believe in the power of continuous learning, whether it's mastering a new AWS service, understanding emerging cybersecurity threats, or simply staying curious about how things work. This mindset has served me well, from balancing demanding internship responsibilities with final year studies to constantly seeking ways to improve and grow.
               </p>
               
               <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>What's Next</h3>
               <p>
-                As I approach graduation in <strong>November 2025</strong>, I'm excited about the possibilities ahead. I'm looking for opportunities where I can apply my cloud computing expertise, leadership experience, and collaborative spirit to build innovative solutions and contribute to meaningful projects.
+                As I am wrapping up my studies in <strong>November 2025</strong>, I'm excited about the possibilities ahead. I'm looking for opportunities where I can apply my cloud computing expertise, leadership experience, and collaborative spirit to build innovative solutions and contribute to meaningful projects.
               </p>
               <p>
                 I'm always open to connecting with fellow tech enthusiasts, discussing cloud computing trends, or chatting about opportunities in the South African tech landscape. Feel free to reach out – I'd love to hear from you!
@@ -125,10 +125,6 @@ const About = ({ onNavigate }) => {
               <div className="stat-item card">
                 <h3>7</h3>
                 <p>Months at AWS</p>
-              </div>
-              <div className="stat-item card">
-                <h3>350+</h3>
-                <p>Residents Managed</p>
               </div>
               <div className="stat-item card">
                 <h3>2025</h3>
