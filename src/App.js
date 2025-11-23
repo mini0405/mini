@@ -17,11 +17,51 @@ function AppContent() {
   const location = useLocation();
   const [currentSection, setCurrentSection] = useState('home');
   const [version, setVersion] = useState('v1');
+  const sections = ['home', 'about', 'skills', 'projects', 'contact'];
 
   useEffect(() => {
     const path = location.pathname.slice(1) || 'home';
     setCurrentSection(path);
   }, [location]);
+
+  useEffect(() => {
+    let startX = 0;
+    let startY = 0;
+    
+    const handleTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    };
+    
+    const handleTouchEnd = (e) => {
+      if (!startX || !startY) return;
+      
+      const endX = e.changedTouches[0].clientX;
+      const endY = e.changedTouches[0].clientY;
+      const diffX = startX - endX;
+      const diffY = startY - endY;
+      
+      if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+        const currentIndex = sections.indexOf(currentSection);
+        if (diffX > 0 && currentIndex < sections.length - 1) {
+          handleNavigation(sections[currentIndex + 1]);
+        } else if (diffX < 0 && currentIndex > 0) {
+          handleNavigation(sections[currentIndex - 1]);
+        }
+      }
+      
+      startX = 0;
+      startY = 0;
+    };
+    
+    document.addEventListener('touchstart', handleTouchStart);
+    document.addEventListener('touchend', handleTouchEnd);
+    
+    return () => {
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+    };
+  }, [currentSection, sections]);
 
   const handleNavigation = (section) => {
     setCurrentSection(section);

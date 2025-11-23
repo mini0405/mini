@@ -1,5 +1,7 @@
 .about {
   background: linear-gradient(135deg, #111215 0%, #1a1a2e 50%, #0a0a0f 100%);
+  width: 100%;
+  overflow-x: hidden;
 }
 
 .about-grid {
@@ -7,6 +9,8 @@
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
   align-items: start;
+  width: 100%;
+  max-width: 100%;
 }
 
 .about-text {
