@@ -169,11 +169,73 @@
   box-shadow: 0 0 10px rgba(255, 80, 0, 0.3);
 }
 
+.project-role {
+  color: #f50;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .project-description {
   color: #b0b0b0;
   font-size: 0.9rem;
   line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.project-details {
+  color: #888;
+  font-size: 0.85rem;
+  line-height: 1.6;
   margin-bottom: 1.5rem;
+  padding-left: 1.2rem;
+}
+
+.project-details li {
+  margin-bottom: 0.5rem;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(135deg, rgba(255, 80, 0, 0.2), rgba(0, 95, 255, 0.2));
+  border: 1px solid rgba(255, 80, 0, 0.5);
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.project-link:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(255, 80, 0, 0.4), rgba(0, 95, 255, 0.4));
+  box-shadow: 0 0 15px rgba(255, 80, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.project-link:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  border-color: rgba(100, 100, 100, 0.5);
+  background: linear-gradient(135deg, rgba(50, 50, 50, 0.2), rgba(30, 30, 30, 0.2));
+}
+
+.project-link i,
+.project-link .material-icons {
+  font-size: 1.2rem;
 }
 
 .project-tech {
@@ -226,6 +288,14 @@
   
   .project-type {
     align-self: flex-start;
+  }
+  
+  .project-actions {
+    flex-direction: column;
+  }
+  
+  .project-link {
+    justify-content: center;
   }
   
   .category-header {

@@ -34,7 +34,7 @@ const About = ({ onNavigate }) => {
                 <TypewriterGreeting />, I'm <strong>Minentle Stuurman</strong>
               </p>
               <p>
-                I'm a Computer Engineering gradute at Cape Peninsula University of Technology with a passion for cloud computing and cybersecurity. Recently, I wrapped up an incredible 7-month journey as a <strong>Cloud Support Associate Intern at Amazon Web Services</strong>, where I got to work with cutting-edge cloud technologies and support enterprise customers.
+                I'm a Computer Engineering gradute from the Cape Peninsula University of Technology with a passion for cloud computing and cybersecurity. Recently, I wrapped up an incredible 7-month journey as a <strong>Cloud Support Associate Intern at Amazon Web Services</strong>, where I got to work with cutting-edge cloud technologies and support enterprise customers.
               </p>
               
               <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>What I Do</h3>

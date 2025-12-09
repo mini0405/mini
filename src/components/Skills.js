@@ -27,12 +27,16 @@ const Skills = ({ onNavigate }) => {
       icon: 'code',
       color: '#764ba2',
       skills: [
-        'Java (OOP)',
-        'Python (Automation)',
-        'SQL (Database queries)',
-        'Bash/Shell scripting',
-        'Git version control',
-        'Linux/Windows CLI'
+        { name: 'Java (OOP)', icon: 'devicon-java-plain colored' },
+        { name: 'Python (Automation)', icon: 'devicon-python-plain colored' },
+        { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
+        { name: 'Go', icon: 'devicon-go-plain colored' },
+        { name: 'C', icon: 'devicon-c-plain colored' },
+        { name: 'C++', icon: 'devicon-cplusplus-plain colored' },
+        { name: 'SQL (Database queries)', icon: 'devicon-mysql-plain colored' },
+        { name: 'Bash/Shell scripting', icon: 'devicon-bash-plain colored' },
+        { name: 'Git version control', icon: 'devicon-git-plain colored' },
+        { name: 'Linux/Windows CLI', icon: 'devicon-linux-plain' }
       ]
     },
     {
@@ -114,18 +118,27 @@ const Skills = ({ onNavigate }) => {
                 </div>
                 
                 <div className="skill-list">
-                  {category.skills.map((skill, skillIndex) => (
-                    <motion.div
-                      key={skill}
-                      className="skill-item"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={inView ? { opacity: 1, x: 0 } : {}}
-                      transition={{ duration: 0.4, delay: 0.5 + index * 0.1 + skillIndex * 0.05 }}
-                    >
-                      <span className="skill-bullet">•</span>
-                      <span className="skill-text">{skill}</span>
-                    </motion.div>
-                  ))}
+                  {category.skills.map((skill, skillIndex) => {
+                    const skillName = typeof skill === 'string' ? skill : skill.name;
+                    const skillIcon = typeof skill === 'object' ? skill.icon : null;
+                    
+                    return (
+                      <motion.div
+                        key={skillName}
+                        className="skill-item"
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={inView ? { opacity: 1, x: 0 } : {}}
+                        transition={{ duration: 0.4, delay: 0.5 + index * 0.1 + skillIndex * 0.05 }}
+                      >
+                        {skillIcon ? (
+                          <i className={`${skillIcon} skill-badge`}></i>
+                        ) : (
+                          <span className="skill-bullet">•</span>
+                        )}
+                        <span className="skill-text">{skillName}</span>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </motion.div>
             ))}

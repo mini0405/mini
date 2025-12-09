@@ -28,7 +28,7 @@ const Hero = ({ onNavigate }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Bachelor of Engineering in Computer Engineering student at Cape Peninsula University of Technology
+            Bachelor of Engineering in Computer Engineering Graduate from the Cape Peninsula University of Technology
           </motion.p>
           
           <motion.p 
@@ -37,7 +37,7 @@ const Hero = ({ onNavigate }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            I recently fell inlove with Cloud Technologies... I am currently learning more about AWS. 
+            I recently fell inlove with Cloud Technologies... I am currently learning more about AWS, GCP, Azure & Oracle. 
           </motion.p>
           
           <motion.div 

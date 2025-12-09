@@ -15,10 +15,21 @@ const Projects = ({ onNavigate }) => {
       icon: 'school',
       projects: [
         {
-          title: 'Dynamic Load Balancing Algorithm',
-          description: 'Final year project designing and benchmarking load balancing algorithms for distributed systems with focus on efficiency and scalability.',
-          tech: ['System Design', 'Distributed Systems', 'Performance Analysis'],
-          type: 'Final Year Project'
+          title: 'Dynamic Load Balancer',
+          role: 'Lead Engineer',
+          description: 'A high-performance Layer 7 traffic director featuring a custom Smooth Weighted Round Robin algorithm and real-time packet visualization.',
+          details: [
+            'Engineered a concurrent load balancer in Go from scratch, implementing advanced traffic strategies like Sticky Sessions and IP Hashing.',
+            'Built a custom Circuit Breaker pattern to automatically detect failing nodes and reroute traffic, ensuring high availability.',
+            'Developed a neon-themed React dashboard that consumes Server-Sent Events (SSE) to visualize packet lifecycle, latency, and server health in real-time.',
+            'Orchestrated the entire architecture using Docker Compose for a seamless dev-to-production workflow.'
+          ],
+          tech: ['Go (Golang)', 'React', 'Docker', 'Server-Sent Events', 'Nginx'],
+          type: 'Final Year Project',
+          links: {
+            github: 'https://github.com/mini0405/dynamic_load_balancing',
+            demo: null // Will be updated with S3 video URL
+          }
         },
         {
           title: 'Networking Labs (NSS370S)',
@@ -27,10 +38,21 @@ const Projects = ({ onNavigate }) => {
           type: 'Academic Lab'
         },
         {
-          title: 'Solar Powered Washing Machine',
-          description: 'Embedded Systems project designing sustainable washing machine powered by solar panels, batteries, and inverter with energy efficiency evaluation.',
-          tech: ['Embedded Systems', 'Solar Power', 'Energy Efficiency', 'Sustainability'],
-          type: 'GA4 Project'
+          title: 'Solar Smart-Grid Controller',
+          role: 'Embedded Systems Developer',
+          description: 'An off-grid power management system for high-load appliances, optimizing solar energy distribution for residential use.',
+          details: [
+            'Engineered an embedded control system to manage power switching between solar inverter batteries and mains electricity.',
+            'Programmed logic in C++ to monitor battery voltage thresholds and prevent deep discharge cycles.',
+            'Designed the complete electrical schematic including inverter sizing and solar array calculations for sustainability.',
+            'Simulated load scenarios to verify energy efficiency under varying weather conditions.'
+          ],
+          tech: ['C/C++', 'Arduino', 'Power Electronics', 'Proteus'],
+          type: 'GA4 Project',
+          links: {
+            tinkercad: 'https://www.tinkercad.com/things/42sk359Vb1w-washing-machine-logic?sharecode=sIXx2PSgEKINMiDRkwjtaWEoZeLxOIukc5ykxArhLCI',
+            demo: "https://website-minentle.s3.us-east-1.amazonaws.com/Version+3+ThinkerCad.mp4"
+          }
         },
         {
           title: 'Broadcasting & Audio Systems',
@@ -44,6 +66,23 @@ const Projects = ({ onNavigate }) => {
       category: 'Professional Experience',
       icon: 'work',
       projects: [
+        {
+          title: 'Enterprise Carpooling Platform',
+          role: 'Full-Stack Developer (AWS Intern)',
+          description: 'A secure, 3-tier internal ride-sharing application designed to optimize employee commute logistics within Amazon Web Services.',
+          details: [
+            'Designed a scalable 3-tier cloud architecture strictly adhering to the AWS Well-Architected Framework.',
+            'Implemented a RESTful API on Node.js EC2 instances, sitting behind an Application Load Balancer for fault tolerance.',
+            'Managed persistent user data and ride-matching algorithms using a relational MySQL database (Amazon RDS).',
+            'Secured the infrastructure using VPC subnets, Security Groups, and granular IAM roles.'
+          ],
+          tech: ['AWS EC2 & RDS', 'Node.js', 'React', 'ALB', 'IAM'],
+          type: 'Internship',
+          links: {
+            github: null,
+            demo: null
+          }
+        },
         {
           title: 'AWS Cloud Support Associate',
           description: 'Internship assisting customers with AWS services troubleshooting, hands-on Linux and networking work, mentorship and real cloud systems exposure.',
@@ -123,13 +162,53 @@ const Projects = ({ onNavigate }) => {
                         <span className="project-type">{project.type}</span>
                       </div>
                       
+                      {project.role && <p className="project-role">{project.role}</p>}
+                      
                       <p className="project-description">{project.description}</p>
+                      
+                      {project.details && (
+                        <ul className="project-details">
+                          {project.details.map((detail, idx) => (
+                            <li key={idx}>{detail}</li>
+                          ))}
+                        </ul>
+                      )}
                       
                       <div className="project-tech">
                         {project.tech.map((tech) => (
                           <span key={tech} className="tech-tag">{tech}</span>
                         ))}
                       </div>
+                      
+                      {project.links && (
+                        <div className="project-actions">
+                          {project.links.github !== undefined && (
+                            project.links.github ? (
+                              <a href={project.links.github} target="_blank" rel="noopener noreferrer" className="project-link">
+                                <i className="devicon-github-original"></i> GitHub
+                              </a>
+                            ) : (
+                              <button className="project-link" disabled>
+                                <i className="devicon-github-original"></i> Private Repo
+                              </button>
+                            )
+                          )}
+                          {project.links.tinkercad && (
+                            <a href={project.links.tinkercad} target="_blank" rel="noopener noreferrer" className="project-link">
+                              <span className="material-icons">memory</span> Tinkercad
+                            </a>
+                          )}
+                          {project.links.demo !== undefined && (
+                            <button 
+                              className="project-link" 
+                              disabled={!project.links.demo}
+                              onClick={() => project.links.demo && window.open(project.links.demo, '_blank')}
+                            >
+                              <span className="material-icons">play_circle</span> {project.links.demo ? 'Watch Demo' : 'Demo Coming Soon'}
+                            </button>
+                          )}
+                        </div>
+                      )}
                     </motion.div>
                   ))}
                 </div>

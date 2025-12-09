@@ -114,6 +114,17 @@
   filter: drop-shadow(0 0 5px var(--card-color));
 }
 
+.skill-badge {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px currentColor);
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover .skill-badge {
+  transform: scale(1.2);
+}
+
 .skill-text {
   color: #b0b0b0;
   font-size: 0.95rem;
