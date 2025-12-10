@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "aws-rum-web": "^1.25.0",
     "framer-motion": "^10.16.4",
+    "fund": "^1.0.0",
     "lucide-react": "^0.542.0",
     "postprocessing": "^6.38.0",
     "react": "^18.2.0",
