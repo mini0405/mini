@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -9,13 +10,19 @@ import Footer from './components/Footer';
 import AnimatedGreeting from './components/AnimatedGreeting';
 import './App.css';
 
-function App() {
-  const [currentSection, setCurrentSection] = useState('home');
+function AppContent() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentSection = location.pathname.slice(1) || 'home';
   const sections = ['home', 'about', 'skills', 'projects', 'contact'];
+
+  const handleNavigate = (section) => {
+    navigate(`/${section}`);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [currentSection]);
+  }, [location.pathname]);
 
   useEffect(() => {
     let startX = 0;
@@ -37,9 +44,9 @@ function App() {
       if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
         const currentIndex = sections.indexOf(currentSection);
         if (diffX > 0 && currentIndex < sections.length - 1) {
-          setCurrentSection(sections[currentIndex + 1]);
+          handleNavigate(sections[currentIndex + 1]);
         } else if (diffX < 0 && currentIndex > 0) {
-          setCurrentSection(sections[currentIndex - 1]);
+          handleNavigate(sections[currentIndex - 1]);
         }
       }
       
@@ -54,36 +61,34 @@ function App() {
       document.removeEventListener('touchstart', handleTouchStart);
       document.removeEventListener('touchend', handleTouchEnd);
     };
-  }, [currentSection, sections]);
+  }, [currentSection, sections, handleNavigate]);
 
 
-
-  const renderSection = () => {
-    switch(currentSection) {
-      case 'home':
-        return <Hero onNavigate={setCurrentSection} />;
-      case 'about':
-        return <About onNavigate={setCurrentSection} />;
-      case 'skills':
-        return <Skills onNavigate={setCurrentSection} />;
-      case 'projects':
-        return <Projects onNavigate={setCurrentSection} />;
-      case 'contact':
-        return <Contact onNavigate={setCurrentSection} />;
-      default:
-        return <Hero onNavigate={setCurrentSection} />;
-    }
-  };
 
   return (
     <div className="App">
       <AnimatedGreeting />
-      <Navigation currentSection={currentSection} onNavigate={setCurrentSection} />
+      <Navigation currentSection={currentSection} onNavigate={handleNavigate} />
       <main className="main-content">
-        {renderSection()}
+        <Routes>
+          <Route path="/" element={<Hero onNavigate={handleNavigate} />} />
+          <Route path="/home" element={<Hero onNavigate={handleNavigate} />} />
+          <Route path="/about" element={<About onNavigate={handleNavigate} />} />
+          <Route path="/skills" element={<Skills onNavigate={handleNavigate} />} />
+          <Route path="/projects" element={<Projects onNavigate={handleNavigate} />} />
+          <Route path="/contact" element={<Contact onNavigate={handleNavigate} />} />
+        </Routes>
       </main>
-      <Footer onNavigate={setCurrentSection} />
+      <Footer onNavigate={handleNavigate} />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 
