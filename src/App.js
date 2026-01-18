@@ -8,6 +8,7 @@ import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
 import AnimatedGreeting from './components/AnimatedGreeting';
+import CallWidget from './components/CallWidget';
 import './App.css';
 
 function AppContent() {
@@ -80,6 +81,7 @@ function AppContent() {
         </Routes>
       </main>
       <Footer onNavigate={handleNavigate} />
+      <CallWidget />
     </div>
   );
 }

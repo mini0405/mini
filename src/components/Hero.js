@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import CyberButton from './CyberButton';
+import CallWidget from './CallWidget';
 import './Hero.css';
 
 const Hero = ({ onNavigate }) => {
