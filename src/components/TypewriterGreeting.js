@@ -13,9 +13,7 @@ const TypewriterGreeting = () => {
     'Thobela', // Northern Sotho
     'Dumelang', // Southern Sotho
     'Hallo', // Afrikaans
-    'Hello', // English
-    '👋', // SASL
-    '⠓⠑⠇⠇⠕' // Braille
+    'Hello' // English
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);

@@ -29,7 +29,7 @@ const Hero = ({ onNavigate }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Bachelor of Engineering in Computer Engineering Graduate from the Cape Peninsula University of Technology
+            Junior Application Engineer at Altron Digital Business
           </motion.p>
           
           <motion.p 

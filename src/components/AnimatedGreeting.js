@@ -55,11 +55,7 @@ const AnimatedGreeting = () => {
     { text: 'Hello', welcome: 'Welcome', language: 'English' }
   ];
 
-  // Static greetings for top
-  const staticGreetings = {
-    sasl: '👋🤟✋', // SASL hand signs for hello
-    braille: '⠓⠑⠇⠇⠕' // Braille for "hello"
-  };
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -116,28 +112,6 @@ const AnimatedGreeting = () => {
 
   return (
     <div className="animated-greeting">
-      {/* Static SASL and Braille at top */}
-      <div className="static-greetings">
-        <motion.div 
-          className="sasl-greeting"
-          variants={floatVariants}
-          animate="animate"
-        >
-          <span className="greeting-text">{staticGreetings.sasl}</span>
-          <span className="greeting-label">SASL</span>
-        </motion.div>
-        
-        <motion.div 
-          className="braille-greeting"
-          variants={floatVariants}
-          animate="animate"
-          transition={{ delay: 1.5 }}
-        >
-          <span className="greeting-text braille-text">{staticGreetings.braille}</span>
-          <span className="greeting-label">Braille</span>
-        </motion.div>
-      </div>
-
       {/* Animated bouncing greetings */}
       <div className="bouncing-greetings">
         <AnimatePresence mode="wait">

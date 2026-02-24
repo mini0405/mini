@@ -34,12 +34,15 @@ const About = ({ onNavigate }) => {
                 <TypewriterGreeting />, I'm <strong>Minentle Stuurman</strong>
               </p>
               <p>
-                I'm a Computer Engineering gradute from the Cape Peninsula University of Technology with a passion for cloud computing and cybersecurity. Recently, I wrapped up an incredible 7-month journey as a <strong>Cloud Support Associate Intern at Amazon Web Services</strong>, where I got to work with cutting-edge cloud technologies and support enterprise customers.
+                I'm a Computer Engineering graduate from the Cape Peninsula University of Technology with a passion for cloud computing, application monitoring, and cybersecurity. I recently completed an incredible 7-month journey as a <strong>Cloud Support Associate Intern at Amazon Web Services</strong>, where I worked with cutting-edge cloud technologies and supported enterprise customers. Currently, I'm working as a <strong>Junior Application Engineer at Altron Digital Business</strong>, where I started in <strong>February 2026</strong>.
               </p>
               
               <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>What I Do</h3>
               <p>
-                My world revolves around creating secure, efficient digital solutions. Whether I'm troubleshooting complex AWS infrastructure, writing Python code, or designing database systems, I'm always thinking about how technology can solve real-world problems. I'm particularly fascinated by <strong>cybersecurity</strong> – there's something deeply satisfying about building systems that not only work brilliantly but also keep users safe.
+                My work focuses on ensuring systems run smoothly and efficiently. I monitor application performance using tools like <strong>Kibana and Grafana</strong>, investigate issues through log analysis, and manage support tickets to resolve technical problems within SLA targets. Whether I'm troubleshooting AWS infrastructure, working with SQL databases to generate insights, or assisting with data migrations, I'm always thinking about how to deliver reliable, secure solutions.
+              </p>
+              <p>
+                I'm particularly passionate about <strong>observability and incident response</strong> – detecting anomalies early, diagnosing root causes quickly, and documenting solutions to prevent future issues. My experience spans cloud technologies, database management, system monitoring, and technical support, giving me a well-rounded perspective on building and maintaining robust applications.
               </p>
               
               <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>My Journey So Far</h3>
@@ -58,12 +61,12 @@ const About = ({ onNavigate }) => {
                 I believe in the power of continuous learning, whether it's mastering a new AWS service, understanding emerging cybersecurity threats, or simply staying curious about how things work. This mindset has served me well, from balancing demanding internship responsibilities with final year studies to constantly seeking ways to improve and grow.
               </p>
               
-              <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>What's Next</h3>
+              <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>Current Role</h3>
               <p>
-                As I am wrapping up my studies in <strong>November 2025</strong>, I'm excited about the possibilities ahead. I'm looking for opportunities where I can apply my cloud computing expertise, leadership experience, and collaborative spirit to build innovative solutions and contribute to meaningful projects.
+                At <strong>Altron Digital Business</strong>, I work across the full application support lifecycle – from proactive monitoring and incident detection to troubleshooting, resolution, and knowledge documentation. I use monitoring platforms to track system health, analyze logs to diagnose issues, manage support workflows, and collaborate with teams to ensure seamless operations. I also work with AWS services and SQL databases for data migrations and reporting, ensuring data integrity throughout.
               </p>
               <p>
-                I'm always open to connecting with fellow tech enthusiasts, discussing cloud computing trends, or chatting about opportunities in the South African tech landscape. Feel free to reach out – I'd love to hear from you!
+                This role has strengthened my skills in <strong>observability tools, incident management, database operations, and cross-team collaboration</strong> – all while maintaining a focus on delivering excellent user experiences and meeting service level commitments.
               </p>
               
               <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>Academic Foundation</h3>
@@ -127,8 +130,8 @@ const About = ({ onNavigate }) => {
                 <p>Months at AWS</p>
               </div>
               <div className="stat-item card">
-                <h3>2025</h3>
-                <p>Graduation Year</p>
+                <h3>2026</h3>
+                <p>Started at Altron</p>
               </div>
             </motion.div>
           </div>

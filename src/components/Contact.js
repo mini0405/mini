@@ -49,12 +49,12 @@ const Contact = ({ onNavigate }) => {
       ]
     },
     {
-      title: 'Academic Transcript',
-      description: 'Official academic records from Cape Peninsula University of Technology',
+      title: 'Qualification Completion Letter',
+      description: 'Official completion letter for Bachelor of Engineering in Computer Engineering from CPUT',
       icon: 'school',
       type: 'PDF',
-      size: 'Not Available',
-      downloadUrl: null
+      size: '89.2 KB',
+      downloadUrl: 'https://website-minentle.s3.us-east-1.amazonaws.com/Minentle+Stuurman+-+222392436.pdf'
     },
     {
       title: 'Portfolio Summary',
@@ -124,7 +124,7 @@ const Contact = ({ onNavigate }) => {
                   }}
                   disabled={!doc.downloadUrl}
                 >
-                  {doc.downloadUrl ? 'Download ⬇️' : 'Not Available'}
+                  {doc.downloadUrl ? 'Download 📄' : 'Not Available'}
                 </CyberButton>
               </motion.div>
             ))}
