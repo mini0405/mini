@@ -124,7 +124,7 @@ const Contact = ({ onNavigate }) => {
                   }}
                   disabled={!doc.downloadUrl}
                 >
-                  {doc.downloadUrl ? 'Download ⬇️' : 'Not Available'}
+                  {doc.downloadUrl ? 'Download ⬇' : 'Not Available'}
                 </CyberButton>
               </motion.div>
             ))}
