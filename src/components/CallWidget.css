@@ -1,4 +1,4 @@
-/* Floating Call Button */
+/* ── Floating Call Button ── */
 .floating-call-btn {
   position: fixed;
   bottom: 75px;
@@ -6,105 +6,100 @@
   z-index: 9998;
 }
 
-/* Mobile positioning for floating call button */
 @media (max-width: 768px) {
   .floating-call-btn {
     position: fixed;
     bottom: auto;
     top: 70%;
-    right: 20px;
+    right: 16px;
     transform: translateY(-50%);
     z-index: 1000;
   }
 }
 
-/* Widget Container */
+/* ── Widget container (mute/chat controls when in call) ── */
 .widget-container {
   position: fixed;
   bottom: 30px;
   right: 30px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 10px;
   z-index: 9999;
   align-items: flex-end;
 }
 
-/* Mobile positioning */
 @media (max-width: 768px) {
   .widget-container {
-    position: fixed;
     bottom: 100px;
-    right: 20px;
-    left: auto;
-    align-items: flex-end;
+    right: 16px;
   }
 }
 
-/* Control Group */
+/* ── Control buttons (mute / chat) ── */
 .control-group {
   display: flex;
-  gap: 10px;
+  gap: 8px;
 }
 
 .control-btn {
-  background: rgba(17, 18, 21, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 46px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: rgba(255,255,255,0.6);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   backdrop-filter: blur(10px);
 }
 
 .control-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(255, 80, 0, 0.3);
-  border-color: rgba(255, 80, 0, 0.5);
+  border-color: #C3E41D;
+  color: #C3E41D;
 }
 
 .control-btn.muted {
-  background: rgba(220, 53, 69, 0.2);
-  border-color: rgba(220, 53, 69, 0.5);
+  background: rgba(220,53,69,0.15);
+  border-color: rgba(220,53,69,0.5);
   color: #dc3545;
 }
 
-/* Chat Window */
+/* ── Chat window ── */
 .chat-window {
   position: fixed;
   bottom: 120px;
   right: 30px;
-  width: 350px;
-  height: 450px;
+  width: 340px;
+  height: 440px;
   z-index: 10000;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  background: #0d0d0d;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
 }
 
-/* Mobile chat positioning */
 @media (max-width: 768px) {
   .chat-window {
-    position: fixed;
     bottom: 20px;
-    right: 20px;
-    left: 20px;
+    right: 16px;
+    left: 16px;
     width: auto;
-    height: 400px;
-    z-index: 10000;
+    height: 380px;
   }
 }
 
 .chat-header {
-  padding: 20px;
-  background: rgba(17, 18, 21, 0.95);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   color: #fff;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.85rem;
   font-weight: 600;
   display: flex;
   justify-content: space-between;
@@ -114,186 +109,134 @@
 .close-btn {
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255,255,255,0.4);
   cursor: pointer;
   padding: 4px;
   border-radius: 4px;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
+  display: flex;
 }
 
 .close-btn:hover {
   color: #fff;
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .chat-body {
   flex: 1;
-  padding: 20px;
+  padding: 16px;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  background: rgba(10, 10, 15, 0.95);
+  gap: 10px;
 }
 
 .message {
-  padding: 12px 16px;
-  border-radius: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
   max-width: 80%;
-  font-size: 14px;
+  font-size: 0.85rem;
   line-height: 1.4;
 }
 
 .my-msg {
   align-self: flex-end;
-  background: linear-gradient(135deg, #f50, #fc9);
-  color: #fff;
-  border-radius: 12px 12px 4px 12px;
+  background: #C3E41D;
+  color: #000;
+  border-radius: 10px 10px 2px 10px;
 }
 
 .admin-msg {
   align-self: flex-start;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.06);
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px 12px 12px 4px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px 10px 10px 2px;
 }
 
 .chat-input {
-  padding: 20px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
   display: flex;
-  gap: 12px;
-  background: rgba(17, 18, 21, 0.95);
+  gap: 10px;
 }
 
 .chat-input input {
   flex: 1;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
   color: #fff;
-  padding: 12px 16px;
-  font-size: 14px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
   outline: none;
-  transition: all 0.2s ease;
+  transition: border-color 0.2s ease;
+  font-family: 'Antic', sans-serif;
 }
 
 .chat-input input:focus {
-  border-color: rgba(255, 80, 0, 0.5);
-  box-shadow: 0 0 0 2px rgba(255, 80, 0, 0.1);
+  border-color: rgba(195,228,29,0.5);
 }
 
 .chat-input input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255,255,255,0.3);
 }
 
 .send-btn {
-  background: linear-gradient(135deg, #f50, #fc9);
+  background: #C3E41D;
   border: none;
   border-radius: 8px;
-  color: #fff;
-  padding: 12px 16px;
+  color: #000;
+  padding: 10px 14px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .send-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(255, 80, 0, 0.3);
+  opacity: 0.85;
 }
 
-/* Cyber Button Styles - Matching main theme */
+/* ── Call button ── */
 .cyber-btn {
   position: relative;
   display: inline-block;
 }
 
 .cyber-btn-border {
-  padding: 3px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 14px;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  padding: 2px;
+  background: #C3E41D;
+  border-radius: 10px;
 }
 
 .cyber-btn-content {
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 12px;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-  padding: 16px 32px;
-  background: #111215;
   display: flex;
-  color: #fff;
-  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  background: #000;
+  color: #C3E41D;
+  font-family: 'Fira Code', monospace;
   font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
+  font-size: 15px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, color 0.2s ease;
   position: relative;
   z-index: 1;
 }
 
+.cyber-btn-content:hover:not(:disabled) {
+  background: #C3E41D;
+  color: #000;
+}
+
 .cyber-btn-content:disabled {
-  opacity: 0.5;
+  opacity: 0.4;
   cursor: not-allowed;
 }
 
-.cyber-btn-content:hover:not(:disabled) {
-  background: rgba(255, 80, 0, 0.1);
-  color: #f50;
-}
-
-.cyber-spin {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.5;
-  overflow: hidden;
-  transition: 0.3s;
-  border-radius: 14px;
-}
-
-.cyber-btn:hover .cyber-spin {
-  opacity: 1;
-}
-
-.cyber-spin-blur {
-  filter: blur(2em);
-}
-
-.cyber-spin-intense {
-  inset: -2px;
-  filter: blur(4px);
-}
-
-.cyber-spin::before {
-  content: "";
-  position: absolute;
-  inset: -150%;
-  animation: cyber-spin 8s cubic-bezier(0.56, 0.15, 0.28, 0.86) infinite;
-  animation-play-state: paused;
-}
-
-.cyber-btn:hover .cyber-spin::before {
-  animation-play-state: running;
-}
-
-.cyber-spin-blur::before {
-  background: linear-gradient(90deg, #f50 30%, transparent 50%, #05f 70%);
-}
-
-.cyber-spin-intense::before {
-  background: linear-gradient(90deg, #f95 20%, transparent 45%, transparent 55%, #59f 80%);
-}
-
-@keyframes cyber-spin {
-  0% { rotate: 10deg; }
-  50% { rotate: 190deg; }
-  100% { rotate: 370deg; }
-}
+/* Hide old spin effects */
+.cyber-spin { display: none; }

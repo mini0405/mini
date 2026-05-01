@@ -39,5 +39,9 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://minentle.co.za"
+  "homepage": "https://minentle.co.za",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.2"
+  }
 }

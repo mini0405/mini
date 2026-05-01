@@ -1,118 +1,224 @@
-.hero {
-  background: transparent;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&family=Antic&display=swap');
+
+/* ── Full-screen hero ── */
+.hero-v2 {
   position: relative;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-.hero::before {
-  content: '';
-  position: absolute;
+/* ── Header ── */
+.hero-v2-header {
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  bottom: 0;
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(255, 80, 0, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(0, 95, 255, 0.1) 0%, transparent 50%);
-  pointer-events: none;
+  z-index: 50;
+  padding: 24px;
 }
 
-.hero-content {
-  text-align: center;
-  z-index: 2;
-  position: relative;
-  max-width: 800px;
+.hero-v2-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
-.hero-title {
-  font-size: clamp(2.5rem, 8vw, 4.5rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  line-height: 1.1;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+/* ── Hamburger button ── */
+.hero-v2-menu-wrap {
+  position: relative;
 }
 
-.hero-subtitle {
-  font-size: clamp(1.1rem, 4vw, 1.5rem);
-  font-weight: 500;
-  margin-bottom: 1.5rem;
-  color: #b0b0b0;
-  line-height: 1.4;
-}
-
-.hero-description {
-  font-size: 1.1rem;
-  color: #888;
-  margin-bottom: 3rem;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-}
-
-.hero-buttons {
+.hero-v2-menu-btn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s ease;
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  align-items: center;
+}
+
+.hero-v2-menu-btn:hover {
+  color: #fff;
+}
+
+/* ── Dropdown menu ── */
+.hero-v2-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 220px;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+  z-index: 100;
+}
+
+.hero-v2-dropdown-item {
+  display: block;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.hero-v2-dropdown-item:hover,
+.hero-v2-dropdown-item.highlight {
+  color: #C3E41D;
+}
+
+/* ── Signature initial ── */
+.hero-v2-signature {
+  font-family: 'Brush Script MT', 'Lucida Handwriting', cursive;
+  font-size: 2.5rem;
+  color: #fff;
+  line-height: 1;
+}
+
+/* ── Centered name block ── */
+.hero-v2-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 0 16px;
+  text-align: center;
+}
+
+.hero-v2-name-block {
+  position: relative;
+  display: inline-block;
+}
+
+/* ── The big name text ── */
+.blur-text-wrap {
+  display: flex;
   flex-wrap: wrap;
 }
 
-.floating-shapes {
+.hero-v2-name {
+  font-family: 'Fira Code', monospace !important;
+  font-weight: 700;
+  font-size: clamp(72px, 16vw, 210px);
+  line-height: 0.82;
+  letter-spacing: -0.03em;
+  color: #C3E41D;
+  white-space: nowrap;
+  justify-content: center;
+  display: flex !important;
+}
+
+/* ── Profile picture overlaid between the two name lines ── */
+.hero-v2-avatar-wrap {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.hero-v2-avatar {
+  width: clamp(65px, 9vw, 130px);
+  height: clamp(110px, 15vw, 220px);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.hero-v2-avatar:hover {
+  transform: scale(1.08);
+}
+
+.hero-v2-avatar img {
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  object-position: top;
   pointer-events: none;
 }
 
-.shape {
+/* ── Tagline ── */
+.hero-v2-tagline {
   position: absolute;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(255, 80, 0, 0.1), rgba(0, 95, 255, 0.1));
-  animation: float 8s ease-in-out infinite;
-  filter: blur(1px);
+  bottom: clamp(80px, 12vh, 140px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  padding: 0 24px;
+  display: flex;
+  justify-content: center;
 }
 
-.shape-1 {
-  width: 200px;
-  height: 200px;
-  top: 20%;
-  left: 10%;
-  animation-delay: 0s;
+.hero-v2-tagline-text {
+  font-family: 'Antic', sans-serif;
+  font-size: clamp(13px, 1.8vw, 22px);
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
-.shape-2 {
-  width: 150px;
-  height: 150px;
-  top: 60%;
-  right: 15%;
-  animation-delay: 3s;
+.hero-v2-cursor {
+  color: #C3E41D;
+  animation: blink 1s step-end infinite;
 }
 
-.shape-3 {
-  width: 100px;
-  height: 100px;
-  bottom: 20%;
-  left: 20%;
-  animation-delay: 6s;
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
 }
 
-@keyframes float {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg);
-    opacity: 0.3;
-  }
-  50% { 
-    transform: translateY(-20px) rotate(180deg);
-    opacity: 0.6;
-  }
+/* ── Scroll chevron ── */
+.hero-v2-scroll {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: color 0.3s ease;
+  animation: bounce 2s ease-in-out infinite;
 }
 
+.hero-v2-scroll:hover {
+  color: #C3E41D;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ── Mobile ── */
 @media (max-width: 768px) {
-  .hero-buttons {
-    flex-direction: column;
-    align-items: center;
+  .hero-v2-header {
+    padding: 16px;
+  }
+
+  .hero-v2-name {
+    font-size: clamp(52px, 18vw, 100px);
+  }
+
+  .hero-v2-tagline {
+    bottom: 80px;
   }
 }

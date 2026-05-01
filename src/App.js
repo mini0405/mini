@@ -7,8 +7,6 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import Footer from './components/Footer';
-import AnimatedGreeting from './components/AnimatedGreeting';
-import CallWidget from './components/CallWidget';
 import './App.css';
 
 function AppContent() {
@@ -68,8 +66,7 @@ function AppContent() {
 
   return (
     <div className="App">
-      <AnimatedGreeting />
-      <Navigation currentSection={currentSection} onNavigate={handleNavigate} />
+<Navigation currentSection={currentSection} onNavigate={handleNavigate} />
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Hero onNavigate={handleNavigate} />} />
@@ -81,7 +78,6 @@ function AppContent() {
         </Routes>
       </main>
       <Footer onNavigate={handleNavigate} />
-      <CallWidget />
     </div>
   );
 }
