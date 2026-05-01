@@ -7,7 +7,7 @@
   pointer-events: none;
   z-index: 1001;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(10, 10, 15, 0.9) 0%, rgba(10, 10, 15, 0.7) 70%, transparent 100%);
+  background: linear-gradient(180deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.7) 70%, transparent 100%);
   backdrop-filter: blur(10px);
 }
 
@@ -31,22 +31,22 @@
 
 .sasl-greeting .greeting-text {
   font-size: 2rem;
-  filter: drop-shadow(0 0 10px rgba(255, 80, 0, 0.5));
+  color: #C3E41D;
 }
 
 .braille-greeting .greeting-text {
   font-size: 1.6rem;
-  font-family: 'Courier New', monospace;
-  color: #05f;
-  filter: drop-shadow(0 0 10px rgba(0, 95, 255, 0.5));
+  font-family: 'Fira Code', monospace;
+  color: rgba(195,228,29,0.6);
 }
 
 .greeting-label {
   font-size: 0.6rem;
-  color: #888;
+  color: rgba(255,255,255,0.3);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
+  font-family: 'Fira Code', monospace;
 }
 
 .bouncing-greetings {
@@ -72,97 +72,38 @@
 }
 
 .main-greeting {
+  font-family: 'Fira Code', monospace;
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  background: linear-gradient(135deg, #f50, #05f, #fc9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 0 15px rgba(255, 80, 0, 0.3));
-  text-shadow: 
-    0 0 20px rgba(255, 255, 255, 0.2),
-    2px 2px 0px #333,
-    4px 4px 0px #222,
-    6px 6px 0px #111,
-    8px 8px 15px rgba(0, 0, 0, 0.8);
-  transform-style: preserve-3d;
-  perspective: 1000px;
+  color: #C3E41D;
 }
 
 .greeting-language {
-  font-size: 1rem;
-  color: #b0b0b0;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  text-shadow: 
-    1px 1px 0px #333,
-    2px 2px 0px #222,
-    3px 3px 5px rgba(0, 0, 0, 0.6);
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.35);
+  font-family: 'Fira Code', monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
-.greeting-particles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-}
-
-.particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  background: linear-gradient(45deg, #f50, #05f);
-  border-radius: 50%;
-  filter: blur(1px);
-}
-
-.particle:nth-child(1) { left: 15%; top: 20%; }
-.particle:nth-child(2) { left: 25%; top: 70%; }
-.particle:nth-child(3) { right: 20%; top: 30%; }
-.particle:nth-child(4) { right: 30%; top: 80%; }
-.particle:nth-child(5) { left: 50%; top: 15%; }
-.particle:nth-child(6) { right: 45%; top: 65%; }
+.greeting-particles { display: none; }
 
 @media (max-width: 768px) {
   .animated-greeting {
     height: 100px;
   }
-  
+
   .bouncing-greetings {
     left: 10%;
     width: 80%;
     height: 50px;
   }
-  
+
   .static-greetings {
     padding: 0 1rem;
   }
-  
-  .sasl-greeting .greeting-text {
-    font-size: 1.6rem;
-  }
-  
-  .braille-greeting .greeting-text {
-    font-size: 1.3rem;
-  }
-  
-  .greeting-label {
-    font-size: 0.6rem;
-  }
-  
-  .main-greeting {
-    font-size: clamp(1.6rem, 6vw, 2.8rem);
-    text-shadow: 
-      0 0 15px rgba(255, 255, 255, 0.2),
-      1px 1px 0px #333,
-      2px 2px 0px #222,
-      3px 3px 0px #111,
-      4px 4px 10px rgba(0, 0, 0, 0.8);
-  }
-  
-  .greeting-language {
-    font-size: 0.9rem;
-  }
+
+  .sasl-greeting .greeting-text { font-size: 1.6rem; }
+  .braille-greeting .greeting-text { font-size: 1.3rem; }
+  .main-greeting { font-size: clamp(1.6rem, 6vw, 2.8rem); }
 }

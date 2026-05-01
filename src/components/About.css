@@ -1,259 +1,148 @@
-.about {
-  background: linear-gradient(135deg, #111215 0%, #1a1a2e 50%, #0a0a0f 100%);
-  width: 100%;
-  overflow-x: hidden;
-}
+.about { background: var(--bg); }
 
 .about-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 4rem;
   align-items: start;
-  width: 100%;
-  max-width: 100%;
 }
 
+/* ── Body text ── */
 .about-text {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #ffffff;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--muted);
 }
 
 .about-text p {
-  margin-bottom: 1.5rem;
-  color: #b0b0b0;
+  margin-bottom: 1.4rem;
+  color: var(--muted);
 }
 
+/* ── Sub-headings match inspo style: mono, uppercase, lime ── */
 .about-text h3 {
-  color: #ffffff;
-  font-weight: 600;
-  font-size: 1.3rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-top: 2.5rem;
+  margin-bottom: 0.8rem;
+  opacity: 0.8;
 }
 
 .about-text strong {
-  color: #ffffff;
+  color: var(--text);
   font-weight: 600;
+  font-family: var(--font-sans);
 }
 
 .about-text blockquote {
+  font-family: var(--font-sans);
   font-style: italic;
-  text-align: center;
   margin: 2rem 0;
-  padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
-  border-radius: 12px;
-  border: 2px solid transparent;
-  color: #888;
-  backdrop-filter: blur(20px);
-  position: relative;
-  overflow: hidden;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 1.2rem 1.5rem;
+  border-left: 2px solid var(--accent);
+  background: rgba(195,228,29,0.03);
+  border-radius: 0 8px 8px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
 }
 
-.about-text blockquote::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #f50, #05f, #f50);
-  background-size: 300% 300%;
-  animation: gradientSpin 2s ease infinite;
-  z-index: -1;
-  border-radius: inherit;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-}
-
-.about-text blockquote::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
-  z-index: -1;
-  border-radius: inherit;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-}
-
+/* ── Stats sidebar ── */
 .about-stats {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: sticky;
+  top: 120px;
 }
 
 .stat-item {
   text-align: center;
-  padding: 2rem 1.5rem;
-  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
-  border-radius: 16px;
-  border: 2px solid transparent;
-  backdrop-filter: blur(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
-}
-
-.stat-item::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #f50, #05f, #f50, #05f);
-  background-size: 400% 400%;
-  animation: gradientSpin 3s ease infinite;
-  z-index: -1;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
-}
-
-.stat-item::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
-  z-index: -1;
-  border-radius: inherit;
-  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
-}
-
-.stat-item:hover::before {
-  opacity: 1;
-}
-
-.stat-item:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 25px 50px rgba(255, 80, 0, 0.3), 0 0 30px rgba(0, 95, 255, 0.2);
-  filter: drop-shadow(0 0 20px rgba(255, 80, 0, 0.4));
-}
-
-.academic-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-
-.academic-year-card {
-  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
-  border: 2px solid transparent;
+  padding: 1.5rem 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 1.5rem;
-  backdrop-filter: blur(20px);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition: border-color 0.25s ease;
 }
 
-.academic-year-card::before {
-  content: '';
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background: linear-gradient(45deg, #f50, #05f, #f50, #05f);
-  background-size: 400% 400%;
-  animation: gradientSpin 3s ease infinite;
-  z-index: -1;
-  border-radius: inherit;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-}
-
-.academic-year-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg, rgba(17, 18, 21, 0.9), rgba(26, 26, 46, 0.8));
-  z-index: -1;
-  border-radius: inherit;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
-}
-
-.academic-year-card:hover::before {
-  opacity: 1;
-}
-
-.academic-year-card:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(255, 80, 0, 0.3), 0 0 25px rgba(0, 95, 255, 0.2);
-  filter: drop-shadow(0 0 15px rgba(255, 80, 0, 0.3));
-}
-
-.year-title {
-  font-size: 0.9rem;
-  margin-bottom: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  font-weight: 600;
-  text-shadow: 0 0 10px currentColor;
-}
-
-.year-1 { color: #05f; }
-.year-2 { color: #f50; }
-.year-3 { color: #f0f; }
-
-.module-list {
-  font-size: 0.85rem;
-  color: #b0b0b0;
-  line-height: 1.4;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.module-list li {
-  margin-bottom: 0.3rem;
-  transition: color 0.3s ease;
-}
-
-.academic-year-card:hover .module-list li {
-  color: #ffffff;
-}
-
-@keyframes gradientSpin {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
+.stat-item:hover { border-color: var(--accent); }
 
 .stat-item h3 {
-  font-size: 2.5rem;
+  font-family: var(--font-mono);
+  font-size: 2.4rem;
   font-weight: 700;
-  color: #f50;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.02em;
-  text-shadow: 0 0 20px rgba(255, 80, 0, 0.5);
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.3rem;
 }
 
 .stat-item p {
-  color: #888;
-  font-weight: 500;
-  font-size: 0.9rem;
+  font-family: var(--font-mono);
+  color: var(--muted);
+  font-size: 0.65rem;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.12em;
+}
+
+/* ── Academic grid ── */
+.academic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.academic-year-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.2rem;
+  transition: border-color 0.25s ease;
+}
+
+.academic-year-card:hover { border-color: var(--accent); }
+
+.year-title {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.8rem;
+}
+
+.year-1 { color: var(--accent); }
+.year-2 { color: rgba(195,228,29,0.6); }
+.year-3 { color: rgba(195,228,29,0.35); }
+
+.module-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* ── Graduation section ── */
+.grad-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.grad-title {
+  font-family: var(--font-mono);
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
 }
 
 @media (max-width: 768px) {
@@ -261,17 +150,12 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .about-stats {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    position: static;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
-  
-  .stat-item {
-    padding: 1.5rem 1rem;
-  }
-  
-  .stat-item h3 {
-    font-size: 2rem;
-  }
+
+  .stat-item { flex: 1; min-width: 110px; }
 }

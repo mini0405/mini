@@ -1,65 +1,143 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import CyberButton from './CyberButton';
-import CallWidget from './CallWidget';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { ChevronDown } from 'lucide-react';
 import './Hero.css';
 
-const Hero = ({ onNavigate }) => {
+// ── BlurText ─────────────────────────────────────────────────────────────────
+const BlurText = ({ text, delay = 50, animateBy = 'words', direction = 'top', className = '', style }) => {
+  const [inView, setInView] = useState(false);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setInView(true); },
+      { threshold: 0.1 }
+    );
+    if (ref.current) observer.observe(ref.current);
+    return () => { if (ref.current) observer.unobserve(ref.current); };
+  }, []);
+
+  const segments = useMemo(() =>
+    animateBy === 'words' ? text.split(' ') : text.split(''),
+    [text, animateBy]
+  );
+
   return (
-    <section className="hero section">
-      <div className="container">
-        <motion.div 
-          className="hero-content"
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+    <p ref={ref} className={`blur-text-wrap ${className}`} style={style}>
+      {segments.map((segment, i) => (
+        <span
+          key={i}
+          style={{
+            display: 'inline-block',
+            filter: inView ? 'blur(0px)' : 'blur(10px)',
+            opacity: inView ? 1 : 0,
+            transform: inView ? 'translateY(0)' : `translateY(${direction === 'top' ? '-20px' : '20px'})`,
+            transition: `all 0.5s ease-out ${i * delay}ms`,
+          }}
         >
-          <motion.h1 
-            className="hero-title"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Molo, I am <span className="gradient-text">&lt;Minentle&gt;</span>
-          </motion.h1>
-          
-          <motion.p 
-            className="hero-subtitle"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-          >
-            Junior Application Engineer at Altron Digital Business
-          </motion.p>
-          
-          <motion.p 
-            className="hero-description"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-          >
-            I recently fell inlove with Cloud Technologies... I am currently learning more about AWS, GCP, Azure & Oracle. 
-          </motion.p>
-          
-          <motion.div 
-            className="hero-buttons"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-          >
-            <CyberButton onClick={() => onNavigate('projects')}>View My Work</CyberButton>
-            <CyberButton onClick={() => onNavigate('contact')}>Download CV</CyberButton>
-          </motion.div>
-        </motion.div>
-        
-        <div className="hero-background">
-          <div className="floating-shapes">
-            <div className="shape shape-1"></div>
-            <div className="shape shape-2"></div>
-            <div className="shape shape-3"></div>
+          {segment}{animateBy === 'words' && i < segments.length - 1 ? ' ' : ''}
+        </span>
+      ))}
+    </p>
+  );
+};
+
+// ── Typewriter tagline ────────────────────────────────────────────────────────
+const phrases = [
+  'Engineer',
+  'Technologist',
+  'Builder',
+  'Solver',
+  'Lifelong Learner',
+];
+
+const Typewriter = () => {
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [displayed, setDisplayed] = useState('');
+  const [deleting, setDeleting] = useState(false);
+
+  useEffect(() => {
+    const current = phrases[phraseIndex];
+    let timeout;
+
+    if (!deleting && displayed.length < current.length) {
+      timeout = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 60);
+    } else if (!deleting && displayed.length === current.length) {
+      timeout = setTimeout(() => setDeleting(true), 1800);
+    } else if (deleting && displayed.length > 0) {
+      timeout = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 35);
+    } else if (deleting && displayed.length === 0) {
+      setDeleting(false);
+      setPhraseIndex((i) => (i + 1) % phrases.length);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayed, deleting, phraseIndex]);
+
+  return (
+    <span className="hero-v2-tagline-text">
+      {displayed}<span className="hero-v2-cursor">|</span>
+    </span>
+  );
+};
+
+// ── Hero ─────────────────────────────────────────────────────────────────────
+const Hero = ({ onNavigate }) => {
+
+  return (
+    <section className="hero-v2">
+
+      {/* ── Header ── */}
+      <header className="hero-v2-header">
+        <nav className="hero-v2-nav">
+          <div className="hero-v2-signature">M</div>
+        </nav>
+      </header>
+
+      {/* ── Centered name ── */}
+      <div className="hero-v2-center">
+        <div className="hero-v2-name-block">
+          <BlurText
+            text="MINENTLE"
+            delay={80}
+            animateBy="letters"
+            direction="top"
+            className="hero-v2-name"
+          />
+          <BlurText
+            text="STUURMAN"
+            delay={80}
+            animateBy="letters"
+            direction="top"
+            className="hero-v2-name"
+          />
+
+          {/* Profile picture sits between the two name lines */}
+          <div className="hero-v2-avatar-wrap">
+            <div className="hero-v2-avatar">
+              <img
+                src="/images/stuurmin.jpg"
+                alt="Minentle Stuurman"
+                draggable={false}
+              />
+            </div>
           </div>
         </div>
       </div>
+
+      {/* ── Tagline typewriter ── */}
+      <div className="hero-v2-tagline">
+        <Typewriter />
+      </div>
+
+      {/* ── Scroll indicator ── */}
+      <button
+        className="hero-v2-scroll"
+        aria-label="Scroll down"
+        onClick={() => onNavigate('about')}
+      >
+        <ChevronDown size={32} />
+      </button>
+
     </section>
   );
 };

@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import TypewriterGreeting from './TypewriterGreeting';
 import ProfilePicture from './ProfilePicture';
+import ImageSwiper from './ImageSwiper';
 import './About.css';
 
 const About = ({ onNavigate }) => {
@@ -14,7 +15,7 @@ const About = ({ onNavigate }) => {
   return (
     <section id="about" className="about section">
       <div className="container">
-        <motion.div 
+        <motion.div
           ref={ref}
           className="about-content"
           initial={{ opacity: 0, y: 50 }}
@@ -22,9 +23,9 @@ const About = ({ onNavigate }) => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title gradient-text">About Me</h2>
-          
+
           <div className="about-grid">
-            <motion.div 
+            <motion.div
               className="about-text"
               initial={{ opacity: 0, x: -50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -34,46 +35,36 @@ const About = ({ onNavigate }) => {
                 <TypewriterGreeting />, I'm <strong>Minentle Stuurman</strong>
               </p>
               <p>
-                I'm a Computer Engineering graduate from the Cape Peninsula University of Technology with a passion for cloud computing, application monitoring, and cybersecurity. I recently completed an incredible 7-month journey as a <strong>Cloud Support Associate Intern at Amazon Web Services</strong>, where I worked with cutting-edge cloud technologies and supported enterprise customers. Currently, I'm working as a <strong>Junior Application Engineer at Altron Digital Business</strong>, where I started in <strong>February 2026</strong>.
+                I'm a Computer Engineering graduate from the Cape Peninsula University of Technology with a deep interest in cloud architecture, systems reliability, and cybersecurity. I specialize in bridging the gap between infrastructure and application layers to keep complex environments running smoothly.
               </p>
-              
-              <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>What I Do</h3>
+
+              <h3>What I Do</h3>
               <p>
-                My work focuses on ensuring systems run smoothly and efficiently. I monitor application performance using tools like <strong>Kibana and Grafana</strong>, investigate issues through log analysis, and manage support tickets to resolve technical problems within SLA targets. Whether I'm troubleshooting AWS infrastructure, working with SQL databases to generate insights, or assisting with data migrations, I'm always thinking about how to deliver reliable, secure solutions.
+                My world revolves around creating secure, efficient, and scalable digital solutions. Whether I'm troubleshooting complex AWS infrastructure, writing backend automation scripts, or debugging production systems, I'm always thinking about how technology can solve real-world problems. I'm particularly fascinated by cybersecurity—there is something deeply satisfying about building systems that not only perform brilliantly but also keep data and users safe.
               </p>
+
+              <h3>My Journey So Far</h3>
               <p>
-                I'm particularly passionate about <strong>observability and incident response</strong> – detecting anomalies early, diagnosing root causes quickly, and documenting solutions to prevent future issues. My experience spans cloud technologies, database management, system monitoring, and technical support, giving me a well-rounded perspective on building and maintaining robust applications.
+                My cloud foundation was built during an incredible 7-month journey as a Cloud Support Associate Intern at AWS. Working with enterprise customers to navigate complex EC2 and S3 configurations taught me what true collaboration looks like, and earning my AWS Certified Solutions Architect Associate credential solidified that expertise.
+                But my experience goes beyond just the code. Managing 350+ residents as a Residence Student Assistant taught me the art of communication, conflict resolution, and leadership. Those experiences proved that the best technical solutions are meaningless without the human element. Today, I apply both my technical and communicative skills daily in my role as a <strong>Junior Application Support Engineer</strong>, ensuring operational reliability and seamless system performance.
               </p>
-              
-              <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>My Journey So Far</h3>
+
+              <h3>Beyond the Code</h3>
               <p>
-                During my time at AWS, I had the privilege of working with an amazing team that taught me what true collaboration looks like. From supporting EC2 instances to helping customers navigate S3 configurations, every day brought new challenges and learning opportunities. I'm proud to be <strong>AWS Certified Solutions Architect Associate</strong>, with additional certifications in Cloud Quest tracks.
+                When I'm not diving deep into cloud architectures or troubleshooting applications, you'll find me exploring the intersection of technology and community impact. Growing up in South Africa and speaking multiple local languages fluently has given me a unique perspective on how technology can bridge cultural and communication gaps. I believe in the power of continuous learning, whether it's mastering a new tool, understanding emerging security threats, or exploring hardware design.
               </p>
+
+              <h3>What's Next</h3>
               <p>
-                But my experience goes beyond just technical skills. As a <strong>Residence Student Assistant managing 350+ Residents </strong>, I learned the art of communication, conflict resolution, and leadership. These experiences taught me that the best technical solutions are meaningless without the human element – understanding people's needs and communicating complex ideas clearly.
+                Having recently completed my BEngTech in Computer Engineering, I am now thinking of expanding my technical scope by pursuing Honours in Electrical Engineering. My 1st option from high school was Electrical Engineering, but I chose Computer Engineering because I saw how it could combine my interests in both hardware and software. I'm excited to continue applying my cloud expertise, operational experience, and collaborative spirit to build innovative solutions.
+                I'm always open to connecting with fellow tech enthusiasts, discussing industry trends, or chatting about the South African tech landscape. Feel free to reach out; I'd love to hear from you! I always respond to messages on LinkedIn and email, and I'm open to coffee chats, mentorship opportunities, or just sharing insights about ideas.
               </p>
-              
-              <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>Beyond the Code</h3>
-              <p>
-                When I'm not diving deep into cloud architectures or debugging systems, you'll find me exploring the intersection of technology and community impact. Growing up in South Africa and speaking multiple local languages fluently has given me a unique perspective on how technology can bridge cultural and communication gaps.
-              </p>
-              <p>
-                I believe in the power of continuous learning, whether it's mastering a new AWS service, understanding emerging cybersecurity threats, or simply staying curious about how things work. This mindset has served me well, from balancing demanding internship responsibilities with final year studies to constantly seeking ways to improve and grow.
-              </p>
-              
-              <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>Current Role</h3>
-              <p>
-                At <strong>Altron Digital Business</strong>, I work across the full application support lifecycle – from proactive monitoring and incident detection to troubleshooting, resolution, and knowledge documentation. I use monitoring platforms to track system health, analyze logs to diagnose issues, manage support workflows, and collaborate with teams to ensure seamless operations. I also work with AWS services and SQL databases for data migrations and reporting, ensuring data integrity throughout.
-              </p>
-              <p>
-                This role has strengthened my skills in <strong>observability tools, incident management, database operations, and cross-team collaboration</strong> – all while maintaining a focus on delivering excellent user experiences and meeting service level commitments.
-              </p>
-              
-              <h3 style={{color: '#667eea', marginTop: '2rem', marginBottom: '1rem'}}>Academic Foundation</h3>
+
+              <h3>Academic Foundation</h3>
               <p>
                 My Computer Engineering degree at CPUT has provided me with a solid foundation across multiple technical domains:
               </p>
-              
+
               <div className="academic-grid">
                 <div className="academic-year-card">
                   <h4 className="year-title year-1">Year 1</h4>
@@ -86,7 +77,7 @@ const About = ({ onNavigate }) => {
                     <li>• Software Design I</li>
                   </ul>
                 </div>
-                
+
                 <div className="academic-year-card">
                   <h4 className="year-title year-2">Year 2</h4>
                   <ul className="module-list">
@@ -100,7 +91,7 @@ const About = ({ onNavigate }) => {
                     <li>• Operating Systems II</li>
                   </ul>
                 </div>
-                
+
                 <div className="academic-year-card">
                   <h4 className="year-title year-3">Year 3</h4>
                   <ul className="module-list">
@@ -112,27 +103,73 @@ const About = ({ onNavigate }) => {
                   </ul>
                 </div>
               </div>
-              
-              <blockquote style={{fontStyle: 'italic', textAlign: 'center', margin: '2rem 0', padding: '1rem', borderLeft: '4px solid #667eea', background: 'rgba(102, 126, 234, 0.1)'}}>
+
+              <blockquote>
                 "Technology is best when it brings people together and makes their lives better."
               </blockquote>
+
+              {/* Graduation & Acknowledgements */}
+              <div className="grad-section">
+                <h3 className="grad-title gradient-text">🎓 I Graduated!</h3>
+                <p>
+                  On the <strong>10th of April 2026</strong>, I officially graduated with the <strong> Bachelor of Engineering Technology in Computer Engineering</strong> from the Cape Peninsula University of Technology. This milestone represents 4 years of late nights, hard work, and growth; and I couldn't have done it alone.
+                </p>
+
+                <h3>With Gratitude</h3>
+                <p>
+                  To my <strong>family</strong>; thank you for your unwavering support, sacrifices, and belief in me even when I doubted myself. You are my foundation.
+                </p>
+                <p>
+                  To my <strong>friends and peers</strong>; the study sessions, the laughs, and the shared struggles made this journey unforgettable. Thank you for walking this road with me.
+                </p>
+                <p>
+                  To my <strong>lecturers and mentors at CPUT</strong>; your guidance shaped not just my technical skills but my character as an engineer.
+                </p>
+                <p>
+                  To the <strong>AWS team</strong>; thank you for giving me the opportunity to grow in a world-class environment and for showing me what excellence looks like.
+                </p>
+                <p>
+                  To <strong>everyone</strong> who cheered me on, checked in, and believed in this journey; this achievement belongs to all of us.
+                </p>
+
+                {/* ── ADD YOUR GRADUATION PHOTOS HERE ──────────────────────────
+                     Place images in the /public/grad/ folder and name them
+                     grad1.jpg, grad2.jpg ... grad10.jpg (or any name you like).
+                     Add or remove entries below to match how many photos you have. ── */}
+                     <h3>Graduation Photos</h3>
+                <ImageSwiper images={[
+                  '/grad/grad1.jpg',
+                  '/grad/grad2.jpg',
+                  '/grad/grad3.jpg',
+                  '/grad/grad4.jpg',
+                  '/grad/grad5.jpg',
+                  '/grad/grad6.jpg',
+                  '/grad/grad7.jpg',
+                  '/grad/grad8.jpg'
+                ]} />
+              </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               className="about-stats"
               initial={{ opacity: 0, x: 50 }}
               animate={inView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <ProfilePicture />
+               {/*<ProfilePicture /> */}
+              <div className="stat-item card">
+                <h3>2026</h3>
+                <p>Graduation Year</p>
+              </div>
+              <div className="stat-item card">
+                <h3>Feb 2026 - Current</h3>
+                <p>Altron Digital Business</p>
+              </div>
               <div className="stat-item card">
                 <h3>7</h3>
                 <p>Months at AWS</p>
               </div>
-              <div className="stat-item card">
-                <h3>2026</h3>
-                <p>Started at Altron</p>
-              </div>
+
             </motion.div>
           </div>
         </motion.div>

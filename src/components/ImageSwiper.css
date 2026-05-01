@@ -1,0 +1,86 @@
+.image-swiper {
+  position: relative;
+  display: grid;
+  place-content: center;
+  user-select: none;
+  touch-action: none;
+  transform-style: preserve-3d;
+  margin: 2rem auto;
+}
+
+.image-card {
+  position: absolute;
+  place-self: center;
+  border: 1px solid rgba(195,228,29,0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: grab;
+  will-change: transform;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6);
+  transform:
+    perspective(var(--card-perspective, 700px))
+    translateZ(calc(-1 * var(--card-z-offset, 12px) * var(--i, 1)))
+    translateY(calc(var(--card-y-offset, 7px) * var(--i, 1)))
+    translateX(var(--swipe-x, 0px))
+    rotateY(var(--swipe-rotate, 0deg));
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.image-card:active {
+  cursor: grabbing;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  display: block;
+}
+
+/* ── Lightbox ── */
+.swiper-lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.swiper-lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.8);
+  cursor: default;
+}
+
+.swiper-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 24px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 1.1rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.swiper-lightbox-close:hover {
+  background: rgba(195,228,29,0.15);
+  border-color: #C3E41D;
+  color: #C3E41D;
+}

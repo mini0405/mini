@@ -1,184 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=Antic&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --accent:      #C3E41D;
+  --bg:          #000;
+  --surface:     #0d0d0d;
+  --border:      rgba(255,255,255,0.08);
+  --text:        #fff;
+  --muted:       rgba(255,255,255,0.45);
+  --font-mono:   'Fira Code', monospace;
+  --font-sans:   'Antic', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── All headings use Fira Code ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+p, li, span, a, label {
+  font-family: var(--font-sans);
+}
+
 .App {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0f 0%, #111215 50%, #1a1a2e 100%);
-  color: #ffffff;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .main-content {
   min-height: 100vh;
-  padding-top: 160px;
+  padding-top: 0;
   position: relative;
   overflow-x: hidden;
 }
 
+/* ── Section layout ── */
 .section {
-  min-height: calc(100vh - 160px);
-  padding: 20px 20px;
+  min-height: 100vh;
+  padding: 120px 40px 80px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1100px;
   width: 100%;
   margin: 0 auto;
 }
 
+/* ── Section title — matches hero name weight/style ── */
 .section-title {
-  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-family: var(--font-mono);
+  font-size: clamp(2.8rem, 6vw, 5rem);
   font-weight: 700;
-  text-align: center;
-  margin-bottom: 4rem;
-  color: #ffffff;
-  letter-spacing: -0.02em;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  color: var(--accent);
+  letter-spacing: -0.03em;
+  line-height: 0.9;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #f50, #05f, #fc9);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: glow-text 3s ease-in-out infinite alternate;
+  color: var(--accent);
 }
 
-@keyframes glow-text {
-  0% { filter: drop-shadow(0 0 10px #f50); }
-  50% { filter: drop-shadow(0 0 20px #05f); }
-  100% { filter: drop-shadow(0 0 10px #fc9); }
-}
-
+/* ── Card ── */
 .card {
-  background: rgba(17, 18, 21, 0.8);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 24px;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent, rgba(255, 80, 0, 0.1), transparent, rgba(0, 95, 255, 0.1), transparent);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-}
-
-.card:hover::before {
-  opacity: 1;
+  transition: border-color 0.25s ease, transform 0.25s ease;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(255, 80, 0, 0.2);
-  border-color: rgba(255, 80, 0, 0.5);
+  border-color: var(--accent);
+  transform: translateY(-4px);
 }
 
-/* Cyberpunk Button Styles */
+/* ── Buttons ── */
 .cyber-btn {
   position: relative;
-  margin: 0.5em;
   display: inline-block;
 }
 
 .cyber-btn-border {
-  padding: 3px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 14px;
-  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  padding: 1.5px;
+  background: var(--accent);
+  border-radius: 8px;
 }
 
 .cyber-btn-content {
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 12px;
-  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
-  padding: 12px 24px;
-  background: #111215;
   display: flex;
-  color: #fff;
-  overflow: hidden;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.cyber-btn-real {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  outline: none;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   border: none;
-  border-radius: 14px;
+  border-radius: 7px;
+  padding: 12px 24px;
+  background: var(--bg);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
   cursor: pointer;
-  opacity: 0;
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
-.cyber-spin {
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  opacity: 0.5;
-  overflow: hidden;
-  transition: 0.3s;
-  border-radius: 14px;
+.cyber-btn-content:hover:not(:disabled) {
+  background: var(--accent);
+  color: #000;
 }
 
-.cyber-btn-real:active ~ .cyber-spin {
-  opacity: 1;
+.cyber-btn-content:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
 }
 
-.cyber-spin-blur {
-  filter: blur(2em) url(#unopaq);
-}
+.cyber-spin { display: none; }
 
-.cyber-spin-intense {
-  inset: -2px;
-  filter: blur(4px) url(#unopaq2);
-}
-
-.cyber-spin::before {
-  content: "";
-  position: absolute;
-  inset: -150%;
-  animation: cyber-spin 8s cubic-bezier(0.56, 0.15, 0.28, 0.86) infinite;
-  animation-play-state: paused;
-}
-
-.cyber-btn:hover .cyber-spin::before {
-  animation-play-state: running;
-}
-
-.cyber-spin-blur::before {
-  background: linear-gradient(90deg, #f50 30%, transparent 50%, #05f 70%);
-}
-
-.cyber-spin-intense::before {
-  background: linear-gradient(90deg, #f95 20%, transparent 45%, transparent 55%, #59f 80%);
-}
-
-@keyframes cyber-spin {
-  0% { rotate: 10deg; }
-  50% { rotate: 190deg; }
-  100% { rotate: 370deg; }
-}
-
-/* SVG Filters for buttons */
 svg.button-filters {
   position: absolute;
   width: 0;
   height: 0;
   pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 100px 20px 80px;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
 }

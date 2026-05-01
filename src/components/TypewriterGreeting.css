@@ -1,20 +1,19 @@
 .typewriter-greeting {
-  color: #f50;
+  color: #C3E41D;
+  font-family: 'Fira Code', monospace;
   font-weight: 600;
-  text-shadow: 0 0 10px rgba(255, 80, 0, 0.5);
   display: inline-block;
   min-width: 120px;
   text-align: left;
 }
 
 .cursor {
-  color: #05f;
+  color: rgba(195,228,29,0.6);
   animation: blink 1s infinite;
   font-weight: normal;
-  text-shadow: 0 0 10px rgba(0, 95, 255, 0.5);
 }
 
 @keyframes blink {
-  0%, 50% { opacity: 1; }
+  0%, 50%  { opacity: 1; }
   51%, 100% { opacity: 0; }
 }

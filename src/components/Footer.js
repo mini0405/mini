@@ -15,8 +15,8 @@ const Footer = ({ onNavigate }) => {
           <div className="footer-bio">
             <h3>Minentle Stuurman</h3>
             <p>
-              Computer Engineer passionate about DevOps, Cyber Security & Software Development. 
-              AWS Certified Solutions Architect with hands-on experience in cloud infrastructure and customer support.
+              Multidisciplinary Engineer with a strong foundation in cloud architecture, software development, and systems support. 
+              I specialize in bridging the gap between infrastructure and application layers to optimize performance, enhance security, and drive operational efficiency.
             </p>
             <div className="footer-tech-stack">
               <i className="devicon-java-plain colored"></i>
