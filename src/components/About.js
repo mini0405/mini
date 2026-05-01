@@ -110,7 +110,7 @@ const About = ({ onNavigate }) => {
 
               {/* Graduation & Acknowledgements */}
               <div className="grad-section">
-                <h3 className="grad-title gradient-text">🎓 I Graduated!</h3>
+                <h3 className="grad-title gradient-text">I Graduated!</h3>
                 <p>
                   On the <strong>10th of April 2026</strong>, I officially graduated with the <strong> Bachelor of Engineering Technology in Computer Engineering</strong> from the Cape Peninsula University of Technology. This milestone represents 4 years of late nights, hard work, and growth; and I couldn't have done it alone.
                 </p>
