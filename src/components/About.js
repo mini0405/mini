@@ -162,7 +162,7 @@ const About = ({ onNavigate }) => {
                 <p>Graduation Year</p>
               </div>
               <div className="stat-item card">
-                <h3>Feb 2026 - Current</h3>
+                <h3>Feb 2026 - </h3>
                 <p>Altron Digital Business</p>
               </div>
               <div className="stat-item card">
