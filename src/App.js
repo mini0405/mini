@@ -26,20 +26,30 @@ function AppContent() {
   useEffect(() => {
     let startX = 0;
     let startY = 0;
-    
+    let startTarget = null;
+
     const handleTouchStart = (e) => {
       startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
+      startTarget = e.target;
     };
-    
+
     const handleTouchEnd = (e) => {
       if (!startX || !startY) return;
-      
+
+      // Don't switch tabs when the swipe originated inside the image swiper
+      if (startTarget && startTarget.closest('.image-swiper')) {
+        startX = 0;
+        startY = 0;
+        startTarget = null;
+        return;
+      }
+
       const endX = e.changedTouches[0].clientX;
       const endY = e.changedTouches[0].clientY;
       const diffX = startX - endX;
       const diffY = startY - endY;
-      
+
       if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
         const currentIndex = sections.indexOf(currentSection);
         if (diffX > 0 && currentIndex < sections.length - 1) {
@@ -48,9 +58,10 @@ function AppContent() {
           handleNavigate(sections[currentIndex - 1]);
         }
       }
-      
+
       startX = 0;
       startY = 0;
+      startTarget = null;
     };
     
     document.addEventListener('touchstart', handleTouchStart);
