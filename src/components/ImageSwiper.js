@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import './ImageSwiper.css';
 
 const ImageSwiper = ({ images, cardWidth = 256, cardHeight = 352 }) => {
@@ -10,20 +11,25 @@ const ImageSwiper = ({ images, cardWidth = 256, cardHeight = 352 }) => {
   const didSwipe = useRef(false);
   const [lightbox, setLightbox] = useState(null);
 
-  const imageList = Array.isArray(images) ? images : images.split(',').map(s => s.trim()).filter(Boolean);
+  const imageList = Array.isArray(images)
+    ? images
+    : images.split(',').map(s => s.trim()).filter(Boolean);
 
   const [cardOrder, setCardOrder] = useState(() =>
     Array.from({ length: imageList.length }, (_, i) => i)
   );
+  const cardOrderRef = useRef(cardOrder);
+  useEffect(() => { cardOrderRef.current = cardOrder; }, [cardOrder]);
+
+  const imageListRef = useRef(imageList);
+  useEffect(() => { imageListRef.current = imageList; }, [imageList]);
 
   const getCards = useCallback(() => {
     if (!cardStackRef.current) return [];
     return [...cardStackRef.current.querySelectorAll('.image-card')];
   }, []);
 
-  const getActiveCard = useCallback(() => {
-    return getCards()[0] || null;
-  }, [getCards]);
+  const getActiveCard = useCallback(() => getCards()[0] || null, [getCards]);
 
   const updatePositions = useCallback(() => {
     getCards().forEach((card, i) => {
@@ -70,10 +76,7 @@ const ImageSwiper = ({ images, cardWidth = 256, cardHeight = 352 }) => {
         }, duration * 0.5);
 
         setTimeout(() => {
-          setCardOrder(prev => {
-            if (prev.length === 0) return [];
-            return [...prev.slice(1), prev[0]];
-          });
+          setCardOrder(prev => prev.length === 0 ? [] : [...prev.slice(1), prev[0]]);
         }, duration);
       } else {
         applySwipeStyles(0);
@@ -110,18 +113,49 @@ const ImageSwiper = ({ images, cardWidth = 256, cardHeight = 352 }) => {
     const el = cardStackRef.current;
     if (!el) return;
 
-    const onDown = (e) => handleStart(e.clientX);
-    const onMove = (e) => handleMove(e.clientX);
-    const onUp   = ()  => handleEnd();
+    const onDown  = (e) => handleStart(e.clientX);
+    const onMove  = (e) => handleMove(e.clientX);
+    const onUp    = ()  => handleEnd();
+    const onCancel = () => {
+      // reset stuck state when browser interrupts the gesture
+      isSwiping.current = false;
+      didSwipe.current = false;
+      startX.current = 0;
+      currentX.current = 0;
+      if (animationFrameId.current) {
+        cancelAnimationFrame(animationFrameId.current);
+        animationFrameId.current = null;
+      }
+    };
 
-    el.addEventListener('pointerdown', onDown);
-    el.addEventListener('pointermove', onMove);
-    el.addEventListener('pointerup',   onUp);
+    // 'click' is the most reliable cross-platform tap signal.
+    // It fires after mouse-click and touch-tap, but NOT after a drag/swipe,
+    // so we only need a lightweight guard for the pointer-event swipe path.
+    const onClick = (e) => {
+      if (didSwipe.current) {
+        didSwipe.current = false;
+        return;
+      }
+      const card = e.target.closest('.image-card');
+      if (!card) return;
+      const cards = [...el.querySelectorAll('.image-card')];
+      if (cards.indexOf(card) !== 0) return; // only front card opens lightbox
+      const originalIndex = cardOrderRef.current[0];
+      setLightbox(imageListRef.current[originalIndex]);
+    };
+
+    el.addEventListener('pointerdown',  onDown);
+    el.addEventListener('pointermove',  onMove);
+    el.addEventListener('pointerup',    onUp);
+    el.addEventListener('pointercancel', onCancel);
+    el.addEventListener('click', onClick);
 
     return () => {
-      el.removeEventListener('pointerdown', onDown);
-      el.removeEventListener('pointermove', onMove);
-      el.removeEventListener('pointerup',   onUp);
+      el.removeEventListener('pointerdown',  onDown);
+      el.removeEventListener('pointermove',  onMove);
+      el.removeEventListener('pointerup',    onUp);
+      el.removeEventListener('pointercancel', onCancel);
+      el.removeEventListener('click', onClick);
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
     };
   }, [handleStart, handleMove, handleEnd]);
@@ -153,12 +187,6 @@ const ImageSwiper = ({ images, cardWidth = 256, cardHeight = 352 }) => {
               width: cardWidth,
               height: cardHeight,
             }}
-            onClick={() => {
-              // only open lightbox if it was a tap, not a swipe
-              if (!didSwipe.current && displayIndex === 0) {
-                setLightbox(imageList[originalIndex]);
-              }
-            }}
           >
             <img
               src={imageList[originalIndex]}
@@ -169,8 +197,7 @@ const ImageSwiper = ({ images, cardWidth = 256, cardHeight = 352 }) => {
         ))}
       </section>
 
-      {/* Lightbox */}
-      {lightbox && (
+      {lightbox && createPortal(
         <div className="swiper-lightbox" onClick={() => setLightbox(null)}>
           <img
             src={lightbox}
@@ -179,7 +206,8 @@ const ImageSwiper = ({ images, cardWidth = 256, cardHeight = 352 }) => {
             onClick={(e) => e.stopPropagation()}
           />
           <button className="swiper-lightbox-close" onClick={() => setLightbox(null)}>✕</button>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
